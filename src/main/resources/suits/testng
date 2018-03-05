@@ -1,0 +1,30 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="suits" verbose="1" parallel="tests" thread-count="2">
+    <test name="test1">
+        <groups>
+            <run>
+                <exclude name="regression"/>
+            </run>
+        </groups>
+
+
+        <classes>
+            <class name="ChromeTest">
+                <methods>
+                    <include name="testForOrderPageFactory"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test2">
+        <classes>
+            <class name="ChromeTest">
+                <methods>
+                    <include name="testForOrderHtmlElements"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
