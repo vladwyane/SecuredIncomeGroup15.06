@@ -68,4 +68,6 @@ public class Register extends HtmlElement {
     public String getErrorMessage() {
         return errorMessage.getText();
     }
+
+
 }
