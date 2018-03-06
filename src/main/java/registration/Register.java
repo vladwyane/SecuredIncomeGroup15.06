@@ -6,12 +6,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.annotations.Block;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
 @Name("Register")
 @Block(@FindBy(xpath = "//body[contains(@class, 'login')]"))
-public class Register {
+public class Register extends HtmlElement {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -28,6 +29,10 @@ public class Register {
 
     public void enterLogin(String login) {
         loginField.sendKeys(login);
+    }
+
+    public String getLoginValue() {
+        return loginField.getEnteredText();
     }
 
     @Name("User Password")
@@ -48,7 +53,7 @@ public class Register {
     }
 
     @Name("Sign In Button")
-    @FindBy(css = "input[value='submit']")
+    @FindBy(css = "input[value='sign in']")
     private Button signInButton;
 
     public Register clickSignInButton() {
@@ -56,9 +61,11 @@ public class Register {
         return this;
     }
 
+    @Name("Error Message")
+    @FindBy(css = ".error-text p")
+    private HtmlElement errorMessage;
 
-
-
-
-
+    public String getErrorMessage() {
+        return errorMessage.getText();
+    }
 }
