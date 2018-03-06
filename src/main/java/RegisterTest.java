@@ -79,6 +79,16 @@ public class RegisterTest {
         softAssert.assertAll();
     }
 
+    @Test
+    public void testClearButton() throws InterruptedException {
+        Register register = new Register(driver);
+        register.enterLogin("error");
+        register.clickCancelButton();
+        softAssert.assertEquals(register.getLoginValue(), "");
+        softAssert.assertAll();
+    }
+
+
 
 
 

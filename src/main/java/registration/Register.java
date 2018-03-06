@@ -31,6 +31,10 @@ public class Register extends HtmlElement {
         loginField.sendKeys(login);
     }
 
+    public String getLoginValue() {
+       return loginField.getEnteredText();
+    }
+
     @Name("User Password")
     @FindBy(id = "user_pass")
     private TextInput passwordField;
