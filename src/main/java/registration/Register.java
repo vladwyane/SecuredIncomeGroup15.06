@@ -11,7 +11,7 @@ import ru.yandex.qatools.htmlelements.element.TextInput;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
 @Name("Register")
-@Block(@FindBy())
+@Block(@FindBy(xpath = "//body[contains(@class, 'login')]"))
 public class Register extends HtmlElement {
 
     private WebDriver driver;
