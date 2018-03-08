@@ -3,16 +3,15 @@ package registration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.yandex.qatools.htmlelements.annotations.Block;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
+import ru.yandex.qatools.htmlelements.element.Link;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
+import user.pages.UserAccount;
 
-@Name("Register")
-@Block(@FindBy(xpath = "//body[contains(@class, 'login')]"))
-public class Register extends HtmlElement {
+public class Register {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -56,9 +55,9 @@ public class Register extends HtmlElement {
     @FindBy(css = "input[value='sign in']")
     private Button signInButton;
 
-    public Register clickSignInButton() {
+    public UserAccount clickSignInButton() {
         signInButton.click();
-        return this;
+        return new UserAccount(driver);
     }
 
     @Name("Error Message")
@@ -67,6 +66,24 @@ public class Register extends HtmlElement {
 
     public String getErrorMessage() {
         return errorMessage.getText();
+    }
+
+    @Name("Create Account Link")
+    @FindBy(xpath = "//*[contains(text(), 'Create Account')]")
+    private Link createAccountLink;
+
+    public CreateAccount createAccountLinkClick() {
+        createAccountLink.click();
+        return new CreateAccount(driver);
+    }
+
+    @Name("Lost Password Link")
+    @FindBy(xpath = "//*[contains(text(), 'Reset My Password')]")
+    private Link lostPasswordLink;
+
+    public LostPassword lostPasswordLinkClick() {
+        lostPasswordLink.click();
+        return new LostPassword(driver);
     }
 
 

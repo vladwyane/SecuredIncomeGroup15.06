@@ -12,6 +12,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import registration.Register;
+import ru.yandex.qatools.htmlelements.annotations.Block;
+import user.pages.UserAccount;
 
 import java.util.concurrent.TimeUnit;
 
