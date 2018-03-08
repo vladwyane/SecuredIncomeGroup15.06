@@ -1,4 +1,4 @@
-package registration;
+package registration.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -11,12 +11,12 @@ import ru.yandex.qatools.htmlelements.element.TextInput;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 import user.pages.UserAccount;
 
-public class Register {
+public class CreateAccount {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public Register(WebDriver driver) {
+    public CreateAccount(WebDriver driver) {
         HtmlElementLoader.populatePageObject(this, driver);
         wait = new WebDriverWait(driver, 3);
         this.driver = driver;
@@ -46,7 +46,7 @@ public class Register {
     @FindBy(css = "input[value='cancel']")
     private Button cancelButton;
 
-    public Register clickCancelButton() {
+    public CreateAccount clickCancelButton() {
         cancelButton.click();
         return this;
     }
@@ -68,8 +68,8 @@ public class Register {
         return errorMessage.getText();
     }
 
-    @Name("Create Account Link")
-    @FindBy(xpath = "//*[contains(text(), 'Create Account')]")
+    @Name("Create Step1 Link")
+    @FindBy(xpath = "//*[contains(text(), 'Create Step1')]")
     private Link createAccountLink;
 
     public CreateAccount createAccountLinkClick() {
@@ -85,6 +85,7 @@ public class Register {
         lostPasswordLink.click();
         return new LostPassword(driver);
     }
+
 
 
 }

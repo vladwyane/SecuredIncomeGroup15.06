@@ -1,18 +1,17 @@
-package registration;
+package create.investments;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
-public class LostPassword {
+public class Step4 {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public LostPassword(WebDriver driver) {
+    public Step4(WebDriver driver) {
         HtmlElementLoader.populatePageObject(this, driver);
         wait = new WebDriverWait(driver, 3);
         this.driver = driver;
     }
-
 }
