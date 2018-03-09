@@ -51,7 +51,7 @@ public class LostPasswordTest {
     }
 
     @Test
-    public void checkMailReset() throws InterruptedException {
+    public void testCheckMailReset() throws InterruptedException {
         LostPassword lostPassword = new LostPassword(driver);
         lostPassword.enterUserLogin(TestData.testEmail);
         lostPassword.clickResetPasswordButton();
@@ -72,7 +72,7 @@ public class LostPasswordTest {
     }
 
     @Test
-    public void testErrorEmpty() throws InterruptedException {
+    public void testEmptyFields() throws InterruptedException {
         LostPassword lostPassword = new LostPassword(driver);
         lostPassword.clickResetPasswordButton();
         Thread.sleep(1000);

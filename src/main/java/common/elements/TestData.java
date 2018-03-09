@@ -16,7 +16,6 @@ public class TestData {
         this.driver = driver;
     }
 
-
     public static String securUrl = "http://securedincomegroup.stgng.co";
     public static String testEmail = "vladwyane@gmail.com";
     public static String correctPassword = "V123456789ch";
@@ -33,5 +32,4 @@ public class TestData {
 
         return  boldHeading;
     }
-
 }

@@ -24,22 +24,34 @@ public class Register {
 
     @Name("User Login")
     @FindBy(id = "user_login")
-    private TextInput loginField;
+    private HtmlElement loginField;
 
     public void enterLogin(String login) {
         loginField.sendKeys(login);
     }
 
     public String getLoginValue() {
-        return loginField.getEnteredText();
+        return loginField.getText();
+    }
+
+    public String getLoginFieldCssValue(String value) {
+        return loginField.getCssValue(value);
     }
 
     @Name("User Password")
     @FindBy(id = "user_pass")
-    private TextInput passwordField;
+    private HtmlElement passwordField;
 
     public void enterPassword(String password) {
         passwordField.sendKeys(password);
+    }
+
+    public String getPasswordValue() {
+        return passwordField.getText();
+    }
+
+    public String getPasswordFieldCssValue(String value) {
+        return passwordField.getCssValue(value);
     }
 
     @Name("Cancel Button")
@@ -72,7 +84,7 @@ public class Register {
     @FindBy(xpath = "//*[contains(text(), 'Create Step1')]")
     private Link createAccountLink;
 
-    public CreateAccount createAccountLinkClick() {
+    public CreateAccount clickCreateAccountLink() {
         createAccountLink.click();
         return new CreateAccount(driver);
     }
@@ -81,10 +93,8 @@ public class Register {
     @FindBy(xpath = "//*[contains(text(), 'Reset My Password')]")
     private Link lostPasswordLink;
 
-    public LostPassword lostPasswordLinkClick() {
+    public LostPassword clickLostPasswordLink() {
         lostPasswordLink.click();
         return new LostPassword(driver);
     }
-
-
 }
