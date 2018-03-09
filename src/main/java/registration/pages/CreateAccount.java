@@ -22,24 +22,53 @@ public class CreateAccount {
         this.driver = driver;
     }
 
-    @Name("User Login")
-    @FindBy(id = "user_login")
-    private TextInput loginField;
+    @Name("Main Heading")
+    @FindBy(xpath = "//*[text()='Create Your Account']")
+    private HtmlElement mainHeading;
 
-    public void enterLogin(String login) {
-        loginField.sendKeys(login);
+    public String getMainHeading() {
+        return mainHeading.getText();
     }
 
-    public String getLoginValue() {
-        return loginField.getEnteredText();
+    @Name("First Name")
+    @FindBy(id = "name")
+    private TextInput firstName;
+
+    public void enterFirstName(String fName) {
+        firstName.sendKeys(fName);
+    }
+
+    @Name("Last Name")
+    @FindBy(id = "last-name")
+    private TextInput lastName;
+
+    public void enterLastName(String lName) {
+        lastName.sendKeys(lName);
+    }
+
+    @Name("Email")
+    @FindBy(id = "email")
+    private TextInput emailField;
+
+    public void enterLogin(String email) {
+        emailField.sendKeys(email);
     }
 
     @Name("User Password")
-    @FindBy(id = "user_pass")
+    @FindBy(id = "password")
     private TextInput passwordField;
 
     public void enterPassword(String password) {
         passwordField.sendKeys(password);
+    }
+
+    @Name("Captcha")
+    @FindBy(xpath = "//div[@class='g-recaptcha']")
+    private Link captcha;
+
+    public CreateAccount clickCaptcha() {
+        captcha.click();
+        return this;
     }
 
     @Name("Cancel Button")
@@ -51,12 +80,12 @@ public class CreateAccount {
         return this;
     }
 
-    @Name("Sign In Button")
-    @FindBy(css = "input[value='sign in']")
-    private Button signInButton;
+    @Name("Submit Button")
+    @FindBy(css = "input[value='submit']")
+    private Button submitButton;
 
-    public UserAccount clickSignInButton() {
-        signInButton.click();
+    public UserAccount clickSubmitButton() {
+        submitButton.click();
         return new UserAccount(driver);
     }
 
@@ -68,24 +97,14 @@ public class CreateAccount {
         return errorMessage.getText();
     }
 
-    @Name("Create Step1 Link")
-    @FindBy(xpath = "//*[contains(text(), 'Create Step1')]")
-    private Link createAccountLink;
+    @Name("Sign In Link")
+    @FindBy(xpath = "//*[contains(text(), 'Sign in')]")
+    private Link signInLink;
 
-    public CreateAccount createAccountLinkClick() {
-        createAccountLink.click();
-        return new CreateAccount(driver);
+    public Register signInLinkClick() {
+        signInLink.click();
+        return new Register(driver);
     }
-
-    @Name("Lost Password Link")
-    @FindBy(xpath = "//*[contains(text(), 'Reset My Password')]")
-    private Link lostPasswordLink;
-
-    public LostPassword lostPasswordLinkClick() {
-        lostPasswordLink.click();
-        return new LostPassword(driver);
-    }
-
 
 
 }

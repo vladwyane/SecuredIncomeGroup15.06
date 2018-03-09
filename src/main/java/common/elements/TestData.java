@@ -19,30 +19,19 @@ public class TestData {
 
     public static String securUrl = "http://securedincomegroup.stgng.co";
     public static String testEmail = "vladwyane@gmail.com";
+    public static String correctPassword = "V123456789ch";
 
-    public void testSearch() throws InterruptedException {
-      /*  driver.findElement(By.xpath("//a[text()='Create Step1 Now']")).click();
-        driver.findElement(By.id("name")).sendKeys("Vladyslav");
-        driver.findElement(By.id("last-name")).sendKeys("Chesalov");
-        driver.findElement(By.id("email")).sendKeys("vladwyane@gmail.com");
-        driver.findElement(By.id("password")).sendKeys("V123456789ch");
-        driver.findElement(By.xpath("//div[@class='g-recaptcha']")).click();
-        Thread.sleep(10000);
-        driver.findElement(By.name("wp-submit")).click();
-        Thread.sleep(10000);
-        */
-        // driver.get("https://accounts.google.com");
+    public String checkGoogleMail() throws InterruptedException {
+        driver.get("http://mail.google.com");
         driver.findElement(By.cssSelector("[name='identifier']")).sendKeys("vladwyane@gmail.com");
         driver.findElement(By.xpath("//span[contains(text(), 'Next')]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         driver.findElement(By.cssSelector("[name='password']")).sendKeys("rdf49dw07");
         driver.findElement(By.xpath("//span[contains(text(), 'Next')]")).click();
-        Thread.sleep(100000);
-       // softAssert.assertEquals(driver.findElements(By.cssSelector("div span b")).get(0).getText(), "Welcome To Secured Income Group");
-    //    softAssert.assertAll();
+        Thread.sleep(3000);
+        String boldHeading = driver.findElements(By.cssSelector("div span b")).get(0).getText();
 
+        return  boldHeading;
     }
-
-
 
 }

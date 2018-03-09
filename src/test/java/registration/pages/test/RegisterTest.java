@@ -96,7 +96,7 @@ public class RegisterTest {
     }
 
     @Test
-    public void testClearButton() throws InterruptedException {
+    public void testClearButton() {
         Register register = new Register(driver);
         register.enterLogin("error");
         register.clickCancelButton();
