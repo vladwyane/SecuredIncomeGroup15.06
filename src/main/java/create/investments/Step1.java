@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import registration.pages.Register;
 import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.Select;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
@@ -17,6 +18,14 @@ public class Step1 {
         HtmlElementLoader.populatePageObject(this, driver);
         wait = new WebDriverWait(driver, 3);
         this.driver = driver;
+    }
+
+    @Name("Main Heading")
+    @FindBy(xpath = "//*[contains(text(), 'Account Information')]")
+    private HtmlElement mainHeading;
+
+    public String getMainHeading() {
+        return mainHeading.getText();
     }
 
     @Name("Investment Select")

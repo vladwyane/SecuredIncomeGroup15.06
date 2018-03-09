@@ -80,13 +80,17 @@ public class Register {
         return errorMessage.getText();
     }
 
-    @Name("Create Step1 Link")
-    @FindBy(xpath = "//*[contains(text(), 'Create Step1')]")
+    @Name("Create Account Link")
+    @FindBy(xpath = "//*[contains(text(), 'Create Account')]")
     private Link createAccountLink;
 
     public CreateAccount clickCreateAccountLink() {
         createAccountLink.click();
         return new CreateAccount(driver);
+    }
+
+    public String getCreateAccountLinkValue() {
+        return createAccountLink.getText();
     }
 
     @Name("Lost Password Link")

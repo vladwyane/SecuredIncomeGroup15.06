@@ -1,11 +1,10 @@
 package registration.pages.test;
 
 import common.elements.TestData;
-import create.investments.Step1;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
@@ -14,7 +13,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import registration.pages.LostPassword;
-import registration.pages.Register;
+
 
 import java.util.concurrent.TimeUnit;
 

@@ -38,6 +38,7 @@ public class CreateAccount {
         firstName.sendKeys(fName);
     }
 
+
     @Name("Last Name")
     @FindBy(id = "last-name")
     private TextInput lastName;
@@ -48,18 +49,34 @@ public class CreateAccount {
 
     @Name("Email")
     @FindBy(id = "email")
-    private TextInput emailField;
+    private HtmlElement emailField;
 
     public void enterLogin(String email) {
         emailField.sendKeys(email);
     }
 
+    public String getEmailValue() {
+        return emailField.getText();
+    }
+
+    public String getEmailFieldCssValue(String value) {
+        return emailField.getCssValue(value);
+    }
+
     @Name("User Password")
     @FindBy(id = "password")
-    private TextInput passwordField;
+    private HtmlElement passwordField;
 
     public void enterPassword(String password) {
         passwordField.sendKeys(password);
+    }
+
+    public String getPasswordValue() {
+        return passwordField.getText();
+    }
+
+    public String getPasswordFieldCssValue(String value) {
+        return passwordField.getCssValue(value);
     }
 
     @Name("Captcha")
@@ -101,7 +118,7 @@ public class CreateAccount {
     @FindBy(xpath = "//*[contains(text(), 'Sign in')]")
     private Link signInLink;
 
-    public Register signInLinkClick() {
+    public Register clickSignInLink() {
         signInLink.click();
         return new Register(driver);
     }
