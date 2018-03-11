@@ -93,7 +93,6 @@ public class ApplicationManager {
     }
 
 
-
     public byte[] takeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }

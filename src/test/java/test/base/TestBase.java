@@ -8,7 +8,7 @@ import org.testng.annotations.*;
 @Listeners(MyTestListener.class)
 public class TestBase {
 
-    protected static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+    protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
     @BeforeSuite
     public static void setupClass() {
@@ -22,7 +22,7 @@ public class TestBase {
         context.setAttribute("app", app);
     }
 
-    @AfterSuite
+    @AfterMethod
     public void teardown() {
         app.stop();
     }
