@@ -1,5 +1,6 @@
 package registration.pages;
 
+import create.account.Step1Account;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -121,6 +122,16 @@ public class CreateAccount {
     public Register clickSignInLink() {
         signInLink.click();
         return new Register(driver);
+    }
+
+    public void testCorrectRegistration(String firstName, String lastName, String login, String password) throws InterruptedException {
+        enterFirstName(firstName);
+        enterLastName(lastName);
+        enterLogin(login);
+        enterPassword(password);
+        clickCaptcha();
+        Thread.sleep(3000);
+        clickSubmitButton();
     }
 
 
