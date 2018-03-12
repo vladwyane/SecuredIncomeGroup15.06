@@ -1,6 +1,6 @@
 package registration.pages.test;
 
-import create.investments.Step1;
+import create.account.Step1Account;
 import org.testng.annotations.Test;
 import registration.pages.CreateAccount;
 import registration.pages.Register;
@@ -21,8 +21,8 @@ public class CreateAccountTest extends TestBase {
         createAccount.clickSubmitButton();
         //Waiting for the email to be sent
         Thread.sleep(5000);
-        Step1 step1 = new Step1(app.getDriver());
-        app.sAssert().assertEquals(step1.getMainHeading(), "Account Information");
+        Step1Account step1Account = new Step1Account(app.getDriver());
+        app.sAssert().assertEquals(step1Account.getMainHeading(), "Account Information");
         app.sAssert().assertAll();
     }
 

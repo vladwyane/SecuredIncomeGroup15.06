@@ -7,9 +7,8 @@ import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.Link;
-import ru.yandex.qatools.htmlelements.element.TextInput;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
-import user.pages.UserAccount;
+import user.pages.UserAccounts;
 
 public class Register {
 
@@ -67,9 +66,9 @@ public class Register {
     @FindBy(css = "input[value='sign in']")
     private Button signInButton;
 
-    public UserAccount clickSignInButton() {
+    public UserAccounts clickSignInButton() {
         signInButton.click();
-        return new UserAccount(driver);
+        return new UserAccounts(driver);
     }
 
     @Name("Error Message")
@@ -100,5 +99,12 @@ public class Register {
     public LostPassword clickLostPasswordLink() {
         lostPasswordLink.click();
         return new LostPassword(driver);
+    }
+
+    public UserAccounts signIn(String email, String password) {
+        enterLogin(email);
+        enterPassword(password);
+        clickSignInButton();
+        return new UserAccounts(driver);
     }
 }

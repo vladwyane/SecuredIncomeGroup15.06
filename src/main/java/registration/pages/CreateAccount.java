@@ -9,7 +9,7 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.Link;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
-import user.pages.UserAccount;
+import user.pages.UserAccounts;
 
 public class CreateAccount {
 
@@ -101,9 +101,9 @@ public class CreateAccount {
     @FindBy(css = "input[value='submit']")
     private Button submitButton;
 
-    public UserAccount clickSubmitButton() {
+    public UserAccounts clickSubmitButton() {
         submitButton.click();
-        return new UserAccount(driver);
+        return new UserAccounts(driver);
     }
 
     @Name("Error Message")

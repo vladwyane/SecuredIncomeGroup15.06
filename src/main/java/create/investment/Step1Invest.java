@@ -1,15 +1,15 @@
-package create.investments;
+package create.investment;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
-public class Step3 {
+public class Step1Invest {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public Step3(WebDriver driver) {
+    public Step1Invest(WebDriver driver) {
         HtmlElementLoader.populatePageObject(this, driver);
         wait = new WebDriverWait(driver, 3);
         this.driver = driver;

@@ -5,15 +5,16 @@ import registration.pages.CreateAccount;
 import registration.pages.LostPassword;
 import registration.pages.Register;
 import test.base.TestBase;
-import user.pages.UserAccount;
+import user.pages.UserAccounts;
 
 public class RegisterTest extends TestBase {
 
     @Test
-    public void testEmptyFields() {
+    public void testEmptyFields() throws InterruptedException {
         app.goTo(app.securUrl);
         Register register = new Register(app.getDriver());
         register.clickSignInButton();
+        Thread.sleep(1000);
         app.sAssert().assertEquals(register.getLoginFieldCssValue("border-color"), "rgb(255, 21, 31)");
         app.sAssert().assertEquals(register.getPasswordFieldCssValue("border-color"), "rgb(255, 21, 31)");
         app.sAssert().assertEquals(register.getLoginFieldCssValue("background-color"), "rgba(248, 248, 248, 1)");
@@ -90,6 +91,7 @@ public class RegisterTest extends TestBase {
 
     @Test
     public void testResetPasswordLink() {
+        app.goTo(app.securUrl);
         Register register = new Register(app.getDriver());
         register.clickLostPasswordLink();
         LostPassword lostPassword = new LostPassword(app.getDriver());
@@ -104,8 +106,8 @@ public class RegisterTest extends TestBase {
         register.enterLogin(app.testEmail);
         register.enterPassword(app.correctPassword);
         register.clickSignInButton();
-        UserAccount userAccount = new UserAccount(app.getDriver());
-        app.sAssert().assertEquals(userAccount.getHeadingSidebar(), "Open A New Account");
+        UserAccounts userAccounts = new UserAccounts(app.getDriver());
+        app.sAssert().assertEquals(userAccounts.getHeadingSidebar(), "Open A New Account");
         app.sAssert().assertAll();
     }
 }

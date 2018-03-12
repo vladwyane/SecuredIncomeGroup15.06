@@ -29,10 +29,11 @@ public class LostPasswordTest extends TestBase{
     }
 
     @Test
-    public void testEmptyFields() {
+    public void testEmptyFields() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co/member-password-lost/");
         LostPassword lostPassword = new LostPassword(app.getDriver());
         lostPassword.clickResetPasswordButton();
+        Thread.sleep(1000);
         app.sAssert().assertEquals(lostPassword.getUserLoginFieldCssValue("border-color"), "rgb(255, 21, 31)");
         app.sAssert().assertAll();
     }
