@@ -8,6 +8,7 @@ import ru.yandex.qatools.htmlelements.annotations.Block;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.*;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
+import user.pages.UserAccounts;
 
 public class Step2Account {
 
@@ -25,6 +26,7 @@ public class Step2Account {
     private TextInput firstName;
 
     public void enterFirstName(String fName) {
+        firstName.clear();
         firstName.sendKeys(fName);
     }
 
@@ -37,6 +39,7 @@ public class Step2Account {
     private TextInput lastName;
 
     public void enterLastName(String lName) {
+        lastName.clear();
         lastName.sendKeys(lName);
     }
 
@@ -118,6 +121,167 @@ public class Step2Account {
         countrySelect.click();
         countryUS.click();
     }
+
+    @Name("City")
+    @FindBy(id = "city")
+    private TextInput city;
+
+    public void enterCity(String value) {
+        city.sendKeys(value);
+    }
+
+    public String getCity() {
+        return city.getEnteredText();
+    }
+
+    @Name("State Province")
+    @FindBy(xpath = "//div[@id='investor-section']//select[@id='state']/following-sibling::span")
+    private HtmlElement stateSelect;
+
+    @Name("Province Alberta")
+    @FindBy(xpath = "//span[contains(text(), 'Alberta')]")
+    private HtmlElement provinceAlberta;
+
+    public void chooseProvinceAlberta() {
+        stateSelect.click();
+        provinceAlberta.click();
+    }
+
+    @Name("Province Yukon")
+    @FindBy(xpath = "//span[contains(text(), 'Yukon')]")
+    private HtmlElement provinceYukon;
+
+    public void chooseProvinceYukon() {
+        stateSelect.click();
+        provinceYukon.click();
+    }
+
+    @Name("State Nevada")
+    @FindBy(xpath = "//span[contains(text(), 'Nevada')]")
+    private HtmlElement stateNevada;
+
+    public void chooseStateNevada() {
+        stateSelect.click();
+        stateNevada.click();
+    }
+
+    @Name("State Alabama")
+    @FindBy(xpath = "//span[contains(text(), 'Alabama')]")
+    private HtmlElement stateAlabama;
+
+    public void chooseStateAlabama() {
+        stateSelect.click();
+        stateAlabama.click();
+    }
+
+    @Name("Postal Code")
+    @FindBy(id = "code")
+    private TextInput postalCode;
+
+    public void enterPostalCode(String value) {
+        postalCode.clear();
+        postalCode.sendKeys(value);
+    }
+
+    public String getPostalCode() {
+        return postalCode.getEnteredText();
+    }
+
+    @Name("Phone Number")
+    @FindBy(id = "tel")
+    private TextInput phoneNumber;
+
+    public void enterPhoneNumber(String value) {
+        phoneNumber.clear();
+        phoneNumber.sendKeys(value);
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber.getEnteredText();
+    }
+
+    @Name("Email Address")
+    @FindBy(id = "email-address")
+    private TextInput email;
+
+    public void enterEmail(String value) {
+        email.clear();
+        email.sendKeys(value);
+    }
+
+    public String getEmail() {
+        return email.getEnteredText();
+    }
+
+    @Name("Financial Status 1 Million")
+    @FindBy(xpath = "//input[@value='1 million']//following-sibling::span[2]")
+    private HtmlElement finStatus1Mil;
+
+    public void checkedFinStatus1Mil() {
+        finStatus1Mil.click();
+    }
+
+    @Name("Financial Status 20000")
+    @FindBy(xpath = "//input[@value='20000']//following-sibling::span[2]")
+    private HtmlElement finStatus20000;
+
+    public void checkedFinStatus20000() {
+        finStatus20000.click();
+    }
+
+    @Name("Financial Status 30000")
+    @FindBy(xpath = "//input[@value='30000']//following-sibling::span[2]")
+    private HtmlElement finStatus30000;
+
+    public void checkedFinStatus30000() {
+        finStatus30000.click();
+    }
+
+    @Name("Financial Status Any of the above")
+    @FindBy(xpath = "//input[@value='any of the above']//following-sibling::span[2]")
+    private HtmlElement finStatusAny;
+
+    public void checkedFinStatusAny() {
+        finStatusAny.click();
+    }
+
+    @Name("Knowledge No")
+    @FindBy(xpath = "//input[@value='no']//following-sibling::span[2]")
+    private HtmlElement knowledgeNo;
+
+    public void checkedKnowledgeNo() {
+        knowledgeNo.click();
+    }
+
+    @Name("Knowledge Yes")
+    @FindBy(xpath = "//input[@value='yes']//following-sibling::span[2]")
+    private HtmlElement knowledgeYes;
+
+    public void checkedKnowledgeYes() {
+        knowledgeYes.click();
+    }
+
+    @Name("Cancel Button")
+    @FindBy(xpath = "//a[text()='cancel']")
+    private Button cancelButton;
+
+    public UserAccounts clickCancelButton() {
+        cancelButton.click();
+        return new UserAccounts(driver);
+    }
+
+    @Name("Save Button")
+    @FindBy(css = "input[value='Save & Continue']")
+    private Button saveButton;
+
+    public Step3Account clickSaveButton() {
+        saveButton.click();
+        return new Step3Account(driver);
+    }
+
+
+
+
 
 
 

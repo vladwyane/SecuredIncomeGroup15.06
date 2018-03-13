@@ -27,7 +27,11 @@ public class Step2AccountTest extends TestBase{
     public void testCancelButton() throws InterruptedException {
 
         Step2Account step2Account = new Step2Account(app.getDriver());
-        step2Account.enterBirthDate("29/11/2015");
+        step2Account.enterFirstName("Vlad");
+        Thread.sleep(3000);
+        step2Account.enterLastName("Last");
+        Thread.sleep(3000);
+        step2Account.enterBirthDate("09/11/2015");
         step2Account.enterSSN("123");
         step2Account.checkedCitizenFN();
         step2Account.enterStreetAddress("Alch");

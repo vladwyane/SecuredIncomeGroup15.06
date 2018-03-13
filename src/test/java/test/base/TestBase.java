@@ -8,7 +8,7 @@ import org.testng.annotations.*;
 @Listeners(MyTestListener.class)
 public class TestBase {
 
-    protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+    protected static final ApplicationManager app = new ApplicationManager(BrowserType.IE);
 
     @BeforeSuite
     public static void setupClass() {
