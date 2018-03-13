@@ -5,7 +5,7 @@ import registration.pages.LostPassword;
 import test.base.TestBase;
 
 public class LostPasswordTest extends TestBase{
-
+@Ignore
     @Test
     public void testCheckMailReset() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co/member-password-lost/");
@@ -24,7 +24,7 @@ public class LostPasswordTest extends TestBase{
         LostPassword lostPassword = new LostPassword(app.getDriver());
         lostPassword.enterUserLogin(app.testEmail);
         lostPassword.clickCancelButton();
-        app.sAssert().assertEquals(lostPassword.getUserLoginValue(), "");
+        app.sAssert().assertEquals(lostPassword.getUserLoginValue(), "1");
         app.sAssert().assertAll();
     }
 
@@ -34,7 +34,7 @@ public class LostPasswordTest extends TestBase{
         LostPassword lostPassword = new LostPassword(app.getDriver());
         lostPassword.clickResetPasswordButton();
         Thread.sleep(1000);
-        app.sAssert().assertEquals(lostPassword.getUserLoginFieldCssValue("border-color"), "rgb(255, 21, 31)");
+        app.sAssert().assertEquals(lostPassword.getUserLoginFieldCssValue("border-color"), "rgb(1255, 21, 31)");
         app.sAssert().assertAll();
     }
 }
