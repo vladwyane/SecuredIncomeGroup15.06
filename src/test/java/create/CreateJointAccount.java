@@ -23,6 +23,7 @@ public class CreateJointAccount extends TestBase{
         userAccounts.clickOpenAccountLink();
     }
 
+    @Ignore
     @Test
     public void createFirstJointAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
@@ -52,7 +53,7 @@ public class CreateJointAccount extends TestBase{
         app.sAssert().assertAll();
     }
 
-    @Test
+    @Test(priority = 2)
     public void createAnotherJointAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountJoint();
@@ -73,6 +74,29 @@ public class CreateJointAccount extends TestBase{
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Joint");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV, V CH");
+        app.sAssert().assertAll();
+    }
+
+    @Test(priority = 2)
+    public void createAnotherJointAccountWithSameAddress() {
+        Step1Account step1Account = new Step1Account(app.getDriver());
+        step1Account.chooseAccountJoint();
+        step1Account.clickSaveButton();
+        S2Joint s2Joint = new S2Joint(app.getDriver());
+        s2Joint.fillingJointInformationWithSameAddress("Vlad", "Ches", "01/27/1991",
+                "98765423","09954679", "vladyslav.chesalov@p2h.com");
+        s2Joint.checkedJCheckboxSameAddress();
+        s2Joint.checkedFinStatus20000();
+        s2Joint.checkedKnowledgeNo();
+        s2Joint.clickSaveButton();
+        Step3Account step3Account = new Step3Account(app.getDriver());
+        step3Account.clickConfirmButton();
+        Step4Account step4Account = new Step4Account(app.getDriver());
+        step4Account.agreeAll("Sign");
+        step4Account.clickFinishButton();
+        UserAccounts userAccounts = new UserAccounts(app.getDriver());
+        app.sAssert().assertEquals(userAccounts.getAccountType(), "Joint");
+        app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV, VLAD CHES");
         app.sAssert().assertAll();
     }
 }

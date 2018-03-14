@@ -231,4 +231,15 @@ public class S2Joint extends S2Individual{
         enterJEmail(email);
 
     }
+
+    public void fillingJointInformationWithSameAddress(String fName, String lName, String birthDate,
+                                                       String SSN, String phNumber, String email ) {
+        enterJFirstName(fName);
+        enterJLastName(lName);
+        enterJBirthDate(birthDate);
+        enterJSSN(SSN);
+        enterJPhoneNumber(phNumber);
+        enterJEmail(email);
+
+    }
 }

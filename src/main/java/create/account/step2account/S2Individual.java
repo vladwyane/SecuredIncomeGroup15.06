@@ -65,6 +65,7 @@ public class S2Individual {
     private TextInput sSN;
 
     public void enterSSN(String number) {
+        sSN.clear();
         sSN.sendKeys(number);
     }
 
@@ -93,6 +94,7 @@ public class S2Individual {
     private TextInput streetAdress;
 
     public void enterStreetAddress(String adress) {
+        streetAdress.clear();
         streetAdress.sendKeys(adress);
     }
 
@@ -127,6 +129,7 @@ public class S2Individual {
     private TextInput city;
 
     public void enterCity(String value) {
+        city.clear();
         city.sendKeys(value);
     }
 
@@ -271,7 +274,7 @@ public class S2Individual {
     }
 
     @Name("Save Button")
-    @FindBy(css = "input[value='Save & Continue']")
+    @FindBy(css = "input[type='submit']")
     private Button saveButton;
 
     public Step3Account clickSaveButton() {
@@ -281,7 +284,7 @@ public class S2Individual {
 
 
     public void fillingInvestorInformation(String fName, String lName, String birthDate, String SSN,
-                                           String sAddress, String city, String pCode, String phNumber, String email ) {
+                                           String sAddress, String city, String pCode, String phNumber, String email) {
         enterFirstName(fName);
         enterLastName(lName);
         enterBirthDate(birthDate);

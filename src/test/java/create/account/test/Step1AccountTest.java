@@ -1,8 +1,10 @@
 package create.account.test;
 
+import create.CreateIndividualAccount;
 import create.account.Step1Account;
 import create.account.StepsBarAccount;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.CreateAccount;
 import registration.pages.Register;
@@ -20,7 +22,7 @@ public class Step1AccountTest extends TestBase {
         userAccounts.clickOpenAccountLink();
     }
 
-
+    @Ignore
     @Test
     public void testCancelButton() {
         Step1Account step1Account = new Step1Account(app.getDriver());
@@ -30,6 +32,7 @@ public class Step1AccountTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testEmptyFields() {
         Step1Account step1Account = new Step1Account(app.getDriver());
@@ -38,6 +41,7 @@ public class Step1AccountTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void correctChooseAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
@@ -48,6 +52,7 @@ public class Step1AccountTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void activeStep1Account() {
         StepsBarAccount stepsBarAccount = new StepsBarAccount(app.getDriver());

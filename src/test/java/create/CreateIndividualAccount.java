@@ -23,7 +23,7 @@ public class CreateIndividualAccount extends TestBase {
         userAccounts.clickOpenAccountLink();
     }
 
-    @Test
+    @Test(priority = 1)
     public void createFirstIndividualAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountIndividual();
@@ -48,7 +48,7 @@ public class CreateIndividualAccount extends TestBase {
         app.sAssert().assertAll();
     }
 
-    @Test
+    @Test(priority = 2)
     public void createAnotherIndividualAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountIndividual();

@@ -117,7 +117,7 @@ public class S2Entity extends S2Individual {
     }
 
     @Name("Entity City")
-    @FindBy(name = "entity_postal_code")
+    @FindBy(name = "entity_city")
     private TextInput eCity;
 
     public void enterECity(String value) {
@@ -205,6 +205,25 @@ public class S2Entity extends S2Individual {
 
     public String getEEmail() {
         return eEmail.getEnteredText();
+    }
+
+    public void fillingEntityInformation(String entName, String position, String taxNum, String sAddress,
+                                         String encity, String pCode, String phNumber, String email) {
+        enterEntityName(entName);
+        enterPositionTitle(position);
+        enterTaxNumber(taxNum);
+        enterEStreetAddress(sAddress);
+        enterECity(encity);
+        enterEPostalCode(pCode);
+        enterEPhoneNumber(phNumber);
+        enterEEmail(email);
+
+    }
+
+    public void fillingEntitytInformationWithSameAddress(String entName, String position, String taxNum) {
+        enterEntityName(entName);
+        enterPositionTitle(position);
+        enterTaxNumber(taxNum);
     }
 
 

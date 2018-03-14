@@ -3,6 +3,7 @@ package create.account.test;
 import create.account.Step1Account;
 import create.account.step2account.S2Individual;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
@@ -22,7 +23,7 @@ public class S2IndividualTest extends TestBase{
         step1Account.clickSaveButton();
     }
 
-
+    @Ignore
     @Test
     public void testCancelButton() throws InterruptedException {
 
