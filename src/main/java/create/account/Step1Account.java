@@ -1,13 +1,12 @@
 package create.account;
 
+import create.account.step2account.S2Individual;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import registration.pages.CreateAccount;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
-import ru.yandex.qatools.htmlelements.element.Select;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 import user.pages.UserAccounts;
 
@@ -92,9 +91,9 @@ public class Step1Account {
     @FindBy(css = "input[value='Save & Continue']")
     private Button saveButton;
 
-    public Step2Account clickSaveButton() {
+    public S2Individual clickSaveButton() {
         saveButton.click();
-        return new Step2Account(driver);
+        return new S2Individual(driver);
     }
 
     @Name("Error Message")

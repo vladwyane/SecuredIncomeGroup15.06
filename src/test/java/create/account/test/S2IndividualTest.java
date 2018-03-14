@@ -1,14 +1,14 @@
 package create.account.test;
 
 import create.account.Step1Account;
-import create.account.Step2Account;
+import create.account.step2account.S2Individual;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
 import user.pages.UserAccounts;
 
-public class Step2AccountTest extends TestBase{
+public class S2IndividualTest extends TestBase{
 
     @BeforeMethod
     public void createAccount() {
@@ -26,18 +26,18 @@ public class Step2AccountTest extends TestBase{
     @Test
     public void testCancelButton() throws InterruptedException {
 
-        Step2Account step2Account = new Step2Account(app.getDriver());
-        step2Account.enterFirstName("Vlad");
+        S2Individual s2Individual = new S2Individual(app.getDriver());
+        s2Individual.enterFirstName("Vlad");
         Thread.sleep(3000);
-        step2Account.enterLastName("Last");
+        s2Individual.enterLastName("Last");
         Thread.sleep(3000);
-        step2Account.enterBirthDate("09/11/2015");
-        step2Account.enterSSN("123");
-        step2Account.checkedCitizenFN();
-        step2Account.enterStreetAddress("Alch");
-        step2Account.chooseCountryUS();
+        s2Individual.enterBirthDate("09/11/2015");
+        s2Individual.enterSSN("123");
+        s2Individual.checkedCitizenFN();
+        s2Individual.enterStreetAddress("Alch");
+        s2Individual.chooseCountryUS();
         Thread.sleep(3000);
-       // app.sAssert().assertEquals(step2Account.getValueFirstName(), "t");
+       // app.sAssert().assertEquals(s2Individual.getValueFirstName(), "t");
        // app.sAssert().assertAll();
     }
 

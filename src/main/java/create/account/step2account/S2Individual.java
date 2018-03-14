@@ -1,21 +1,21 @@
-package create.account;
+package create.account.step2account;
 
+import create.account.Step3Account;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.yandex.qatools.htmlelements.annotations.Block;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.*;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 import user.pages.UserAccounts;
 
-public class Step2Account {
+public class S2Individual {
 
-    private WebDriver driver;
+    public WebDriver driver;
     private WebDriverWait wait;
 
-    public Step2Account(WebDriver driver) {
+    public S2Individual(WebDriver driver) {
         HtmlElementLoader.populatePageObject(this, driver);
         wait = new WebDriverWait(driver, 3);
         this.driver = driver;
@@ -36,15 +36,15 @@ public class Step2Account {
 
     @Name("Last Name")
     @FindBy(id = "last-name")
-    private TextInput lastName;
+    private TextInput jLastName;
 
     public void enterLastName(String lName) {
-        lastName.clear();
-        lastName.sendKeys(lName);
+        jLastName.clear();
+        jLastName.sendKeys(lName);
     }
 
     public String getValueLastName() {
-        return lastName.getEnteredText();
+        return jLastName.getEnteredText();
     }
 
     @Name("Birth Date")
@@ -73,7 +73,7 @@ public class Step2Account {
     }
 
     @Name("Citizenship US Citizen")
-    @FindBy(xpath = "//span[text()='US Citizen']")
+    @FindBy(xpath = "//div[@id='investor-section']//span[text()='US Citizen']")
     private HtmlElement citizenUS;
 
     public void checkedCitizenUS() {
@@ -81,7 +81,7 @@ public class Step2Account {
     }
 
     @Name("Foreign National")
-    @FindBy(xpath = "//span[text()='Foreign National']")
+    @FindBy(xpath = "//div[@id='investor-section']//span[text()='Foreign National']")
     private HtmlElement citizenFN;
 
     public void checkedCitizenFN() {
@@ -280,14 +280,18 @@ public class Step2Account {
     }
 
 
+    public void fillingInvestorInformation(String fName, String lName, String birthDate, String SSN,
+                                           String sAddress, String city, String pCode, String phNumber, String email ) {
+        enterFirstName(fName);
+        enterLastName(lName);
+        enterBirthDate(birthDate);
+        enterSSN(SSN);
+        enterStreetAddress(sAddress);
+        enterCity(city);
+        enterPostalCode(pCode);
+        enterPhoneNumber(phNumber);
+        enterEmail(email);
 
-
-
-
-
-
-
-
-
+    }
 }
 

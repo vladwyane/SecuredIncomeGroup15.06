@@ -79,5 +79,12 @@ public class Step4Account {
         return new UserAccounts(driver);
     }
 
+    public void agreeAll(String signature) {
+        checkedCheckboxReview();
+        checkedCheckboxTaxpayer();
+        checkedCheckboxElectronic();
+        enterSignature(signature);
+    }
+
 
 }

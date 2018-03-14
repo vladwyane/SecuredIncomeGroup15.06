@@ -36,4 +36,20 @@ public class UserAccounts {
         openAccountLink.click();
     }
 
+    @Name("Account Type")
+    @FindBy(xpath = "(//*[@class='account-type'])[1]")
+    private HtmlElement accountType;
+
+    public String getAccountType() {
+        return accountType.getText();
+    }
+
+    @Name("Account Name")
+    @FindBy(xpath = "(//*[@class='name']//a)[1]")
+    private Link accountName;
+
+    public String getAccountName() {
+        return accountName.getText();
+    }
+
 }
