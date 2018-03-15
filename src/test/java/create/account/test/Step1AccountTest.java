@@ -1,12 +1,10 @@
 package create.account.test;
 
-import create.CreateIndividualAccount;
 import create.account.Step1Account;
 import create.account.StepsBarAccount;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-import registration.pages.CreateAccount;
 import registration.pages.Register;
 import test.base.TestBase;
 import user.pages.UserAccounts;

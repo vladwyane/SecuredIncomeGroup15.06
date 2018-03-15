@@ -1,4 +1,4 @@
-package create;
+package create.account.test;
 
 import create.account.Step1Account;
 import create.account.step2account.S2Individual;

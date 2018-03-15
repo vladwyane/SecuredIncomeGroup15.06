@@ -1,5 +1,7 @@
 package test.base.data;
 
+import create.account.step2account.S2Individual;
+
 public enum Users {
     ADMIN("admin@mfsa.ru", "passwrd"),
     MANAGER("manager@mfsa.ru", "passwrd"),
@@ -21,6 +23,14 @@ public enum Users {
         this.password = password;
 
     }
+
+
+
+
+
+
+
+
 
 
 

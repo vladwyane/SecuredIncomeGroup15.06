@@ -1,5 +1,6 @@
 package test.base;
 
+import create.account.step2account.S2Individual;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.asserts.SoftAssert;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
+import test.base.data.Users;
 
 
 import java.util.concurrent.TimeUnit;
@@ -66,7 +68,7 @@ public class ApplicationManager {
         } else if (browser.equals(BrowserType.EDGE)) {
             driver = new EdgeDriver();
         }
-        //driver.manageb ().window().fullscreen();
+        //driver.manage().window().fullscreen();
         driver.manage().timeouts().pageLoadTimeout(300, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 3);
@@ -91,7 +93,6 @@ public class ApplicationManager {
 
         return  boldHeading;
     }
-
 
     public byte[] takeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);

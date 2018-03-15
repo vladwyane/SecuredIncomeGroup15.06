@@ -1,4 +1,4 @@
-package create;
+package create.account.test;
 
 import create.account.Step1Account;
 import create.account.Step3Account;
@@ -23,8 +23,8 @@ public class CreateRetirementAccount extends TestBase{
         userAccounts.clickOpenAccountLink();
     }
 
-    @Ignore
-    @Test
+
+    @Test(priority = 1)
     public void createFirstRetirementAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountRetirement();
