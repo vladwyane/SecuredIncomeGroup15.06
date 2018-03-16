@@ -5,11 +5,14 @@ import create.account.Step3Account;
 import create.account.Step4Account;
 import create.account.step2account.S2Entity;
 import create.account.step2account.S2Trust;
+import create.investment.Step1Invest;
+import create.investment.Step2Invest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
+import user.pages.IndividualInvestments;
 import user.pages.UserAccounts;
 
 public class CreateEntityAccount extends TestBase {
@@ -100,5 +103,7 @@ public class CreateEntityAccount extends TestBase {
         app.sAssert().assertEquals(userAccounts.getAccountName(), "ENTITY");
         app.sAssert().assertAll();
     }
+
+
 
 }
