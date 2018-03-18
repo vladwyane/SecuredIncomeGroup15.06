@@ -3,9 +3,11 @@ package registration.pages.test;
 import org.testng.annotations.*;
 import registration.pages.LostPassword;
 import test.base.TestBase;
+import test.base.data.Users;
 
 public class LostPasswordTest extends TestBase{
-@Ignore
+
+    @Ignore
     @Test
     public void testCheckMailReset() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co/member-password-lost/");
@@ -14,10 +16,11 @@ public class LostPasswordTest extends TestBase{
         lostPassword.clickResetPasswordButton();
         //Waiting for the email to be sent
         Thread.sleep(5000);
-        app.sAssert().assertEquals(app.checkGoogleMail(), "[Secured Income Group] - Reset Password");
+        app.sAssert().assertEquals(app.checkGoogleMail(Users.VLADWYANE), "[Secured Income Group] - Reset Password");
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testClearButton() {
         app.goTo("http://securedincomegroup.stgng.co/member-password-lost/");
@@ -28,6 +31,7 @@ public class LostPasswordTest extends TestBase{
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testEmptyFields() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co/member-password-lost/");

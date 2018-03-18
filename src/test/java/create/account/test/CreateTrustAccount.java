@@ -19,21 +19,21 @@ public class CreateTrustAccount extends TestBase{
     @BeforeMethod
     public void createAccount() {
         app.goTo("http://securedincomegroup.stgng.co/");
-        Register register = new Register(app.getDriver());
-        register.signIn(app.testEmail, app.correctPassword);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.signIn(Users.CHESALOV);
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickOpenAccountLink();
     }
 
-
-    @Test(priority = 1)
+    @Ignore
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 12)
     public void createFirstTrustAccountSSN() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountTrust();
         step1Account.clickSaveButton();
         S2Trust s2Trust = new S2Trust(app.getDriver());
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingInvestorInformation(Users.ADMIN);
+        helperMethods.fillingInvestorInformation(Users.CHESALOV);
         s2Trust.checkedCitizenFN();
         s2Trust.chooseCountryCanada();
         s2Trust.chooseProvinceAlberta();
@@ -54,15 +54,15 @@ public class CreateTrustAccount extends TestBase{
         app.sAssert().assertAll();
     }
 
-
-    @Test(priority = 1)
+    @Ignore
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 12)
     public void createFirstTrustAccountTIN() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountTrust();
         step1Account.clickSaveButton();
         S2Trust s2Trust = new S2Trust(app.getDriver());
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingInvestorInformation(Users.ADMIN);
+        helperMethods.fillingInvestorInformation(Users.CHESALOV);
         s2Trust.checkedCitizenFN();
         s2Trust.chooseCountryCanada();
         s2Trust.chooseProvinceAlberta();
@@ -83,7 +83,7 @@ public class CreateTrustAccount extends TestBase{
         app.sAssert().assertAll();
     }
 
-    @Test(priority = 2)
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherTrustAccountSSN() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountTrust();
@@ -106,7 +106,7 @@ public class CreateTrustAccount extends TestBase{
         app.sAssert().assertAll();
     }
 
-    @Test(priority = 2)
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherTrustAccountTIN() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountTrust();

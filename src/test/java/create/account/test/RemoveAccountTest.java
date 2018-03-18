@@ -6,6 +6,7 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
+import test.base.data.HelperMethods;
 import test.base.data.Users;
 import user.pages.UserAccounts;
 
@@ -14,8 +15,8 @@ public class RemoveAccountTest extends TestBase {
     @BeforeMethod
     public void signInAdmin() {
         app.goTo("http://securedincomegroup.stgng.co/");
-        Register register = new Register(app.getDriver());
-        register.signIn("admin", "!swGo4!KVtH9z^sEOUNfcB31");
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.signIn(Users.ADMIN);
     }
 
     @Ignore

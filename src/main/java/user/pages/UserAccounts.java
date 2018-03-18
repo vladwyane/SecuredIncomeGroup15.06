@@ -64,4 +64,67 @@ public class UserAccounts {
         accountNameIndividual.click();
     }
 
+    @Name("Account Name Joint")
+    @FindBy(xpath = "(//span[contains(text(), 'Joint')]//following-sibling::form//a)[1]")
+    private Link accountNameJoint;
+
+    public String getAccountNameJoint() {
+        return accountNameJoint.getText();
+    }
+
+    public void clickAccountNameJoint() {
+        accountNameJoint.click();
+    }
+
+    @Name("Account Name Retirement")
+    @FindBy(xpath = "(//span[contains(text(), 'Retirement/Simple IRA')]//following-sibling::form//a)[1]")
+    private Link accountNameRetirement;
+
+    public String getAccountNameRetirement() {
+        return accountNameRetirement.getText();
+    }
+
+    public void clickAccountNameRetirement() {
+        accountNameRetirement.click();
+    }
+
+    @Name("Account Name Trust")
+    @FindBy(xpath = "(//span[contains(text(), 'Trust')]//following-sibling::form//a)[1]")
+    private Link accountNameTrust;
+
+    public String getAccountNameTrust() {
+        return accountNameTrust.getText();
+    }
+
+    public void clickAccountNameTrust() {
+        accountNameTrust.click();
+    }
+
+    @Name("Account Name Entity")
+    @FindBy(xpath = "(//span[contains(text(), 'Entity/Corporation')]//following-sibling::form//a)[1]")
+    private Link accountNameEntity;
+
+    public String getAccountNameEntity() {
+        return accountNameEntity.getText();
+    }
+
+    public void clickAccountNameEntity() {
+        accountNameEntity.click();
+    }
+
+    @Name("Finish Funding")
+    @FindBy(xpath = "//*[@data-prop-name='finish-funds']//span")
+    private Link alertFinishFunding;
+
+    public String getAlertFinishFunding() {
+        return alertFinishFunding.getText();
+    }
+
+    public void clickAlertFinishFunding() {
+        alertFinishFunding.click();
+    }
+
+
+
+
 }

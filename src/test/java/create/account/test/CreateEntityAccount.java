@@ -25,24 +25,25 @@ public class CreateEntityAccount extends TestBase {
     @BeforeMethod
     public void createAccount() {
         app.goTo("http://securedincomegroup.stgng.co/");
-        Register register = new Register(app.getDriver());
-        register.signIn(app.testEmail, app.correctPassword);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.signIn(Users.CHESALOV);
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickOpenAccountLink();
     }
 
-    @Test(priority = 1)
+    @Ignore
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 12)
     public void createFirstEntityAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountEntity();
         step1Account.clickSaveButton();
         S2Entity s2Entity = new S2Entity(app.getDriver());
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingInvestorInformation(Users.ADMIN);
+        helperMethods.fillingInvestorInformation(Users.CHESALOV);
         s2Entity.checkedCitizenFN();
         s2Entity.chooseCountryCanada();
         s2Entity.chooseProvinceAlberta();
-        helperMethods.fillingEntityInformation(Users.ADMIN);
+        helperMethods.fillingEntityInformation(Users.CHESALOV);
         s2Entity.chooseEntityTypeCorporation();
         s2Entity.chooseECountryUS();
         s2Entity.chooseEStateNevada();
@@ -60,14 +61,14 @@ public class CreateEntityAccount extends TestBase {
         app.sAssert().assertAll();
     }
 
-    @Test(priority = 2)
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherEntityAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountEntity();
         step1Account.clickSaveButton();
         S2Entity s2Entity = new S2Entity(app.getDriver());
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingEntityInformation(Users.ADMIN);
+        helperMethods.fillingEntityInformation(Users.CHESALOV);
         s2Entity.chooseEntityTypeCorporation();
         s2Entity.chooseECountryUS();
         s2Entity.chooseEStateNevada();
@@ -85,7 +86,7 @@ public class CreateEntityAccount extends TestBase {
         app.sAssert().assertAll();
     }
 
-    @Test(priority = 2)
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherEntityAccountWithSameAddress() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountEntity();
@@ -93,7 +94,7 @@ public class CreateEntityAccount extends TestBase {
         S2Entity s2Entity = new S2Entity(app.getDriver());
         s2Entity.checkedECheckboxSameAddress();
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingEntitytInformationWithSameAddress(Users.ADMIN);
+        helperMethods.fillingEntitytInformationWithSameAddress(Users.CHESALOV);
         s2Entity.chooseEntityTypeLLC();
         s2Entity.checkedFinStatus30000();
         s2Entity.checkedKnowledgeYes();
@@ -105,7 +106,7 @@ public class CreateEntityAccount extends TestBase {
         step4Account.clickFinishButton();
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Entity/Llc");
-        app.sAssert().assertEquals(userAccounts.getAccountName(), "ENTITY");
+        app.sAssert().assertEquals(userAccounts.getAccountName(), "ENTITYNAME");
         app.sAssert().assertAll();
 
 

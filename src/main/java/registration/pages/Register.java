@@ -101,10 +101,5 @@ public class Register {
         return new LostPassword(driver);
     }
 
-    public UserAccounts signIn(String email, String password) {
-        enterLogin(email);
-        enterPassword(password);
-        clickSignInButton();
-        return new UserAccounts(driver);
-    }
+
 }

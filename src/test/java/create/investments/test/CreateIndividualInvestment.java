@@ -2,8 +2,8 @@ package create.investments.test;
 
 import create.investment.*;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-import registration.pages.Register;
 import test.base.TestBase;
 import test.base.data.HelperMethods;
 import test.base.data.Users;
@@ -13,14 +13,13 @@ import user.pages.UserAccounts;
 public class CreateIndividualInvestment extends TestBase {
 
     @BeforeMethod
-    public void createAccount() {
+    public void signInAccount() {
         app.goTo("http://securedincomegroup.stgng.co/");
-        Register register = new Register(app.getDriver());
-        register.signIn(app.testEmail, app.correctPassword);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.signIn(Users.CHESALOV);
     }
 
-
-    @Test
+    @Test (groups = "CreateIndividualInvestment", dependsOnGroups = "CreateAccount", alwaysRun = true, priority = 16)
     public void createIndInvest3Month() {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameIndividual();
@@ -33,7 +32,7 @@ public class CreateIndividualInvestment extends TestBase {
         Step2Invest step2Invest = new Step2Invest(app.getDriver());
         step2Invest.checkedRolloverDividends();
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingDividendInformation(Users.MANAGER);
+        helperMethods.fillingDividendInformation(Users.VLADWYANE);
         step2Invest.chooseDivCountryCanada();
         step2Invest.chooseDivProvinceAlberta();
         step2Invest.clickSaveButton();
@@ -45,9 +44,12 @@ public class CreateIndividualInvestment extends TestBase {
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByCheckButton();
         step5Invest.clickFinishButton();
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $5000");
+        app.sAssert().assertAll();
 
     }
 
+    @Ignore
     @Test
     public void createIndInvest6Month() {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
@@ -72,6 +74,7 @@ public class CreateIndividualInvestment extends TestBase {
         step5Invest.clickMyAccountButton();
     }
 
+    @Ignore
     @Test
     public void createIndInvest1Year() {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
@@ -99,6 +102,7 @@ public class CreateIndividualInvestment extends TestBase {
         step5Invest.clickFinishButton();
     }
 
+    @Ignore
     @Test
     public void createIndInvest3Year(){
         UserAccounts userAccounts = new UserAccounts(app.getDriver());

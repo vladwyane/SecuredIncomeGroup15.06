@@ -7,6 +7,8 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
+import test.base.data.HelperMethods;
+import test.base.data.Users;
 import user.pages.UserAccounts;
 
 public class Step1AccountTest extends TestBase {
@@ -14,8 +16,8 @@ public class Step1AccountTest extends TestBase {
     @BeforeMethod
     public void createAccount() {
         app.goTo("http://securedincomegroup.stgng.co/");
-        Register register = new Register(app.getDriver());
-        register.signIn(app.testEmail, app.correctPassword);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.signIn(Users.CHESALOV);
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickOpenAccountLink();
     }

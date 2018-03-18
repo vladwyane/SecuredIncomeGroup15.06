@@ -4,11 +4,13 @@ import create.account.step2account.S2Individual;
 
 public enum Users {
 
-    ADMIN("Vladyslav", "Chesalov", "vladwyane@gmail.com", "V123456789ch", "11/07/1987", "123456789",
+    ADMIN("Admin", "Adminov", "admin", "!swGo4!KVtH9z^sEOUNfcB31", "05/07/1980", "123456789",
+            "Admiv Street", "LA", "1234", "0697643478", "Director", "EntityName", "127856745", "RetireName", "DivName", "SecAdress"),
+    CHESALOV("Vladyslav", "Chesalov", "vladwyane@gmail.com", "V123456789ch", "11/07/1987", "123456789",
             "Milutenka Street", "Kharkiv", "1234", "0668843478", "QA", "EntityName", "123456745", "RetireName", "DivName", "SecAdress"),
-    MANAGER("Vlad", "Ches", "dwyane@i.ua", "V123456789ch", "12/07/2001", "987654321",
+    VLADWYANE("Vlad", "Ches", "vladwyane@gmail.com", "rdf49dw07", "12/07/2001", "987654321",
             "Shevchenka", "Kiev", "56789", "0995467891", "Manager", "EntityName","123456745", "RetireName", "DivName", "SecAdress"),
-    VLAD("V", "Ch", "vladyslav.chesalov@p2h.com", "V123456789ch", "01/07/1991", "987654",
+    VLAD("V", "Ch", "vladyslav.chesalov@p2h.com", "JR6GMs4ywG", "01/07/1991", "987654",
             "Ivanova", "Alchevsk", "59", "0995467", "Director","EntityName","123456745", "RetireName", "DivName", "SecAdress");
 
     public String getFirstUserName() {

@@ -5,7 +5,10 @@ import create.account.step2account.S2Individual;
 import create.account.step2account.S2Joint;
 import create.account.step2account.S2Retirement;
 import create.investment.Step2Invest;
+import registration.pages.CreateAccount;
+import registration.pages.Register;
 import test.base.TestBase;
+import user.pages.UserAccounts;
 
 public class HelperMethods extends TestBase{
 
@@ -95,6 +98,24 @@ public class HelperMethods extends TestBase{
         step2Invest.enterDivStreetAddress(users.getStAddress());
         step2Invest.enterDivCity(users.getCity());
         step2Invest.enterDivPostalCode(users.getPCode());
+    }
+
+    public void signIn(Users users) {
+        Register register = new Register(app.getDriver());
+        register.enterLogin(users.getEmail());
+        register.enterPassword(users.getPassword());
+        register.clickSignInButton();
+    }
+
+    public void registration(Users users) throws InterruptedException {
+        CreateAccount createAccount = new CreateAccount(app.getDriver());
+        createAccount.enterFirstName(users.getFirstUserName());
+        createAccount.enterLastName(users.getLastUserName());
+        createAccount.enterLogin(users.getEmail());
+        createAccount.enterPassword(users.getPassword());
+        createAccount.clickCaptcha();
+        Thread.sleep(3000);
+        createAccount.clickSubmitButton();
     }
 
 

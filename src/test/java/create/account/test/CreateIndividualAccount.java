@@ -20,21 +20,21 @@ public class CreateIndividualAccount extends TestBase {
     @BeforeMethod
     public void createAccount() {
         app.goTo("http://securedincomegroup.stgng.co/");
-        Register register = new Register(app.getDriver());
-        register.signIn(app.testEmail, app.correctPassword);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.signIn(Users.CHESALOV);
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickOpenAccountLink();
     }
 
 
-    @Test(priority = 1)
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 12)
     public void createFirstIndividualAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountIndividual();
         step1Account.clickSaveButton();
         S2Individual s2Individual = new S2Individual(app.getDriver());
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingInvestorInformation(Users.ADMIN);
+        helperMethods.fillingInvestorInformation(Users.CHESALOV);
         s2Individual.checkedCitizenFN();
         s2Individual.chooseCountryCanada();
         s2Individual.chooseProvinceAlberta();
@@ -52,7 +52,7 @@ public class CreateIndividualAccount extends TestBase {
         app.sAssert().assertAll();
     }
 
-    @Test(priority = 2)
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherIndividualAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountIndividual();

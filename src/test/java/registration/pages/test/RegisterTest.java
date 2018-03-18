@@ -1,5 +1,6 @@
 package registration.pages.test;
 
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.CreateAccount;
 import registration.pages.LostPassword;
@@ -9,6 +10,7 @@ import user.pages.UserAccounts;
 
 public class RegisterTest extends TestBase {
 
+    @Ignore
     @Test
     public void testEmptyFields() throws InterruptedException {
         app.goTo(app.securUrl);
@@ -22,6 +24,7 @@ public class RegisterTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testErrorLogin() {
         app.goTo(app.securUrl);
@@ -37,6 +40,7 @@ public class RegisterTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testErrorPassword() {
         app.goTo(app.securUrl);
@@ -52,6 +56,7 @@ public class RegisterTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testErrorSpaces() {
         app.goTo(app.securUrl);
@@ -67,6 +72,7 @@ public class RegisterTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testClearButton() {
         app.goTo(app.securUrl);
@@ -79,6 +85,7 @@ public class RegisterTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testCreateAccountLink() {
         app.goTo(app.securUrl);
@@ -89,6 +96,7 @@ public class RegisterTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testResetPasswordLink() {
         app.goTo(app.securUrl);
@@ -99,6 +107,7 @@ public class RegisterTest extends TestBase {
         app.sAssert().assertAll();
     }
 
+    @Ignore
     @Test
     public void testCorrectSignIn() {
         app.goTo(app.securUrl);

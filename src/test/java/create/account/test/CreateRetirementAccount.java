@@ -3,12 +3,10 @@ package create.account.test;
 import create.account.Step1Account;
 import create.account.Step3Account;
 import create.account.Step4Account;
-import create.account.step2account.S2Individual;
 import create.account.step2account.S2Retirement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-import registration.pages.Register;
 import test.base.TestBase;
 import test.base.data.HelperMethods;
 import test.base.data.Users;
@@ -19,26 +17,26 @@ public class CreateRetirementAccount extends TestBase{
     @BeforeMethod
     public void createAccount() {
         app.goTo("http://securedincomegroup.stgng.co/");
-        Register register = new Register(app.getDriver());
-        register.signIn(app.testEmail, app.correctPassword);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.signIn(Users.CHESALOV);
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickOpenAccountLink();
     }
 
-
-    @Test(priority = 1)
+    @Ignore
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 12)
     public void createFirstRetirementAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountRetirement();
         step1Account.clickSaveButton();
         S2Retirement s2Retirement = new S2Retirement(app.getDriver());
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingRInvestorInformation(Users.ADMIN);
+        helperMethods.fillingRInvestorInformation(Users.CHESALOV);
         s2Retirement.checkedCitizenFN();
         s2Retirement.chooseCountryCanada();
         s2Retirement.chooseProvinceAlberta();
         s2Retirement.chooseTypeIRA();
-        helperMethods.fillingRetirementInformation(Users.MANAGER);
+        helperMethods.fillingRetirementInformation(Users.VLADWYANE);
         s2Retirement.chooseRetCountryUS();
         s2Retirement.chooseRetStateNevada();;
         s2Retirement.checkedFinStatus1Mil();
@@ -55,7 +53,7 @@ public class CreateRetirementAccount extends TestBase{
         app.sAssert().assertAll();
     }
 
-    @Test(priority = 2)
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherRetirementAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountRetirement();
@@ -63,7 +61,7 @@ public class CreateRetirementAccount extends TestBase{
         S2Retirement s2Retirement = new S2Retirement(app.getDriver());
         s2Retirement.chooseTypeSimpleIRA();
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingRetirementInformation(Users.MANAGER);
+        helperMethods.fillingRetirementInformation(Users.VLADWYANE);
         s2Retirement.chooseRetCountryUS();
         s2Retirement.chooseRetStateNevada();;
         s2Retirement.checkedFinStatus1Mil();
@@ -80,7 +78,7 @@ public class CreateRetirementAccount extends TestBase{
         app.sAssert().assertAll();
     }
 
-    @Test(priority = 2)
+    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherRetirementAccountWithoutRetireInfo() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountRetirement();
