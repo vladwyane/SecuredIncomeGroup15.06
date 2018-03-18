@@ -180,32 +180,4 @@ public class S2Retirement extends S2Individual {
         return retEmail.getEnteredText();
     }
 
-    public void fillingRInvestorInformation(String fName, String lName, String birthDate,
-                                           String sAddress, String city, String pCode, String phNumber, String email) {
-        enterFirstName(fName);
-        enterLastName(lName);
-        enterBirthDate(birthDate);
-        enterStreetAddress(sAddress);
-        enterCity(city);
-        enterPostalCode(pCode);
-        enterPhoneNumber(phNumber);
-        enterEmail(email);
-
-    }
-
-    public void fillingRetirementInformation(String retireName, String address, String city,
-                                                       String postCode, String phNumber, String email ) {
-        enterRetireCustodianName(retireName);
-        enterRetirementStreetAddress(address);
-        enterRetCity(city);
-        enterRetPostalCode(postCode);
-        enterRetPhoneNumber(phNumber);
-        enterRetEmail(email);
-
-    }
-
-
-
-
-
 }

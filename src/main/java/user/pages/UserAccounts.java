@@ -52,16 +52,16 @@ public class UserAccounts {
         return accountName.getText();
     }
 
-    @Name("Account Name Investment")
+    @Name("Account Name Individual")
     @FindBy(xpath = "(//span[contains(text(), 'Individual')]//following-sibling::form//a)[1]")
-    private Link accountNameInvestment;
+    private Link accountNameIndividual;
 
-    public String getAccountNameInvestment() {
-        return accountNameInvestment.getText();
+    public String getAccountNameIndividual() {
+        return accountNameIndividual.getText();
     }
 
-    public void clickAccountNameInvestment() {
-        accountNameInvestment.click();
+    public void clickAccountNameIndividual() {
+        accountNameIndividual.click();
     }
 
 }

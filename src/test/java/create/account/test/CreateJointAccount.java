@@ -10,6 +10,8 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
+import test.base.data.HelperMethods;
+import test.base.data.Users;
 import user.pages.UserAccounts;
 
 public class CreateJointAccount extends TestBase{
@@ -30,12 +32,11 @@ public class CreateJointAccount extends TestBase{
         step1Account.chooseAccountJoint();
         step1Account.clickSaveButton();
         S2Joint s2Joint = new S2Joint(app.getDriver());
-        s2Joint.fillingInvestorInformation("Vladyslav", "Chesalov", "11/07/1987", "123456789",
-                "Milutenka Street", "Kharkiv", "1234", "0668843478", app.testEmail);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.fillingInvestorInformation(Users.ADMIN);
         s2Joint.chooseCountryCanada();
         s2Joint.chooseProvinceYukon();
-        s2Joint.fillingJointInformation("Vlad", "Ches", "12/07/2001", "987654321",
-                "Shevchenka", "Kiev", "56789", "0995467891", "dwyane@i.ua");
+        helperMethods.fillingJointInformation(Users.MANAGER);
         s2Joint.chooseJCountryUS();
         s2Joint.chooseJStateNevada();
         s2Joint.checkedJCitizenUS();
@@ -59,8 +60,8 @@ public class CreateJointAccount extends TestBase{
         step1Account.chooseAccountJoint();
         step1Account.clickSaveButton();
         S2Joint s2Joint = new S2Joint(app.getDriver());
-        s2Joint.fillingJointInformation("V", "Ch", "01/07/1991", "987654",
-                "Ivanova", "Alchevsk", "59", "0995467", "vladyslav.chesalov@p2h.com");
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.fillingJointInformation(Users.VLAD);
         s2Joint.chooseJCountryUS();
         s2Joint.chooseJStateAlabama();
         s2Joint.checkedFinStatus30000();
@@ -83,8 +84,8 @@ public class CreateJointAccount extends TestBase{
         step1Account.chooseAccountJoint();
         step1Account.clickSaveButton();
         S2Joint s2Joint = new S2Joint(app.getDriver());
-        s2Joint.fillingJointInformationWithSameAddress("Vlad", "Ches", "01/27/1991",
-                "98765423","09954679", "vladyslav.chesalov@p2h.com");
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.fillingJointInformationWithSameAddress(Users.MANAGER);
         s2Joint.checkedJCheckboxSameAddress();
         s2Joint.checkedFinStatus20000();
         s2Joint.checkedKnowledgeNo();

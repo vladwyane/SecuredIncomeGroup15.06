@@ -281,20 +281,5 @@ public class S2Individual {
         saveButton.click();
         return new Step3Account(driver);
     }
-
-
-    public void fillingInvestorInformation(String fName, String lName, String birthDate, String SSN,
-                                           String sAddress, String city, String pCode, String phNumber, String email) {
-        enterFirstName(fName);
-        enterLastName(lName);
-        enterBirthDate(birthDate);
-        enterSSN(SSN);
-        enterStreetAddress(sAddress);
-        enterCity(city);
-        enterPostalCode(pCode);
-        enterPhoneNumber(phNumber);
-        enterEmail(email);
-
-    }
 }
 

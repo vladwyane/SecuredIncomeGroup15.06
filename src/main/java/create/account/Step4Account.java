@@ -71,11 +71,11 @@ public class Step4Account {
     }
 
     @Name("Save Button")
-    @FindBy(css = "input[value='Finish']")
-    private Button finishButton;
+    @FindBy(css = "input[type='submit']")
+    private Button saveButton;
 
     public UserAccounts clickFinishButton() {
-        finishButton.click();
+        saveButton.click();
         return new UserAccounts(driver);
     }
 

@@ -8,11 +8,11 @@ import org.testng.annotations.*;
 @Listeners(MyTestListener.class)
 public class TestBase {
 
-    protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+    protected static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
     @BeforeSuite
     public static void setupClass() {
-       app.setup();
+        app.setup();
         Reporter.log("Before Suit executed",1,true);
     }
 

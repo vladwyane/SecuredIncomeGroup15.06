@@ -207,27 +207,4 @@ public class S2Entity extends S2Individual {
         return eEmail.getEnteredText();
     }
 
-    public void fillingEntityInformation(String entName, String position, String taxNum, String sAddress,
-                                         String encity, String pCode, String phNumber, String email) {
-        enterEntityName(entName);
-        enterPositionTitle(position);
-        enterTaxNumber(taxNum);
-        enterEStreetAddress(sAddress);
-        enterECity(encity);
-        enterEPostalCode(pCode);
-        enterEPhoneNumber(phNumber);
-        enterEEmail(email);
-
-    }
-
-    public void fillingEntitytInformationWithSameAddress(String entName, String position, String taxNum) {
-        enterEntityName(entName);
-        enterPositionTitle(position);
-        enterTaxNumber(taxNum);
-    }
-
-
-
-
-
 }

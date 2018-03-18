@@ -10,6 +10,8 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
+import test.base.data.HelperMethods;
+import test.base.data.Users;
 import user.pages.UserAccounts;
 
 public class CreateRetirementAccount extends TestBase{
@@ -30,14 +32,13 @@ public class CreateRetirementAccount extends TestBase{
         step1Account.chooseAccountRetirement();
         step1Account.clickSaveButton();
         S2Retirement s2Retirement = new S2Retirement(app.getDriver());
-        s2Retirement.fillingRInvestorInformation("Vladyslav", "Chesalov", "11/27/1987",
-              "Milutenka Street", "Kharkiv", "1234", "0668843478", app.testEmail);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.fillingRInvestorInformation(Users.ADMIN);
         s2Retirement.checkedCitizenFN();
         s2Retirement.chooseCountryCanada();
         s2Retirement.chooseProvinceAlberta();
         s2Retirement.chooseTypeIRA();
-        s2Retirement.fillingRetirementInformation("RetireName", "Shevchenka", "Kiev",
-                "95321", "09957867891", "dwyane@i.ua");
+        helperMethods.fillingRetirementInformation(Users.MANAGER);
         s2Retirement.chooseRetCountryUS();
         s2Retirement.chooseRetStateNevada();;
         s2Retirement.checkedFinStatus1Mil();
@@ -61,8 +62,8 @@ public class CreateRetirementAccount extends TestBase{
         step1Account.clickSaveButton();
         S2Retirement s2Retirement = new S2Retirement(app.getDriver());
         s2Retirement.chooseTypeSimpleIRA();
-        s2Retirement.fillingRetirementInformation("RetireName", "Shevchenka", "Kiev",
-                "95321", "09957867891", "dwyane@i.ua");
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.fillingRetirementInformation(Users.MANAGER);
         s2Retirement.chooseRetCountryUS();
         s2Retirement.chooseRetStateNevada();;
         s2Retirement.checkedFinStatus1Mil();

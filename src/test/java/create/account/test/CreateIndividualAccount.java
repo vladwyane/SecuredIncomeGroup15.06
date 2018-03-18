@@ -5,14 +5,17 @@ import create.account.step2account.S2Individual;
 import create.account.Step3Account;
 import create.account.Step4Account;
 import create.account.step2account.S2Joint;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
+import test.base.data.HelperMethods;
 import test.base.data.Users;
 import user.pages.UserAccounts;
 
 public class CreateIndividualAccount extends TestBase {
+
 
     @BeforeMethod
     public void createAccount() {
@@ -23,14 +26,15 @@ public class CreateIndividualAccount extends TestBase {
         userAccounts.clickOpenAccountLink();
     }
 
+
     @Test(priority = 1)
     public void createFirstIndividualAccount() {
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountIndividual();
         step1Account.clickSaveButton();
         S2Individual s2Individual = new S2Individual(app.getDriver());
-        s2Individual.fillingInvestorInformation("Vladyslav", "Chesalov", "11/07/1987", "123456789",
-                "Milutenka Street", "Kharkiv", "1234", "0668843478", app.testEmail);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.fillingInvestorInformation(Users.ADMIN);
         s2Individual.checkedCitizenFN();
         s2Individual.chooseCountryCanada();
         s2Individual.chooseProvinceAlberta();

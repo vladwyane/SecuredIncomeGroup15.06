@@ -1,18 +1,14 @@
 package create.investment;
 
+import create.account.Step4Account;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
-public class Step4Invest {
-
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class Step4Invest extends Step4Account{
 
     public Step4Invest(WebDriver driver) {
-        HtmlElementLoader.populatePageObject(this, driver);
-        wait = new WebDriverWait(driver, 3);
-        this.driver = driver;
+        super(driver);
     }
 
 }

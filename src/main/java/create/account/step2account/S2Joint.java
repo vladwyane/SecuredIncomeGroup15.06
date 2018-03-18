@@ -218,28 +218,5 @@ public class S2Joint extends S2Individual{
         return jEmail.getEnteredText();
     }
 
-    public void fillingJointInformation(String fName, String lName, String birthDate, String SSN,
-                                           String sAddress, String city, String pCode, String phNumber, String email ) {
-        enterJFirstName(fName);
-        enterJLastName(lName);
-        enterJBirthDate(birthDate);
-        enterJSSN(SSN);
-        enterJStreetAddress(sAddress);
-        enterJCity(city);
-        enterJPostalCode(pCode);
-        enterJPhoneNumber(phNumber);
-        enterJEmail(email);
 
-    }
-
-    public void fillingJointInformationWithSameAddress(String fName, String lName, String birthDate,
-                                                       String SSN, String phNumber, String email ) {
-        enterJFirstName(fName);
-        enterJLastName(lName);
-        enterJBirthDate(birthDate);
-        enterJSSN(SSN);
-        enterJPhoneNumber(phNumber);
-        enterJEmail(email);
-
-    }
 }

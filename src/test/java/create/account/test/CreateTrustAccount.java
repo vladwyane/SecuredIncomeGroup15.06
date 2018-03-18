@@ -10,6 +10,8 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
+import test.base.data.HelperMethods;
+import test.base.data.Users;
 import user.pages.UserAccounts;
 
 public class CreateTrustAccount extends TestBase{
@@ -30,8 +32,8 @@ public class CreateTrustAccount extends TestBase{
         step1Account.chooseAccountTrust();
         step1Account.clickSaveButton();
         S2Trust s2Trust = new S2Trust(app.getDriver());
-        s2Trust.fillingInvestorInformation("Vladyslav", "Chesalov", "11/27/1987", "345678",
-                "Milutenka Street", "Kharkiv", "1234", "0668843478", app.testEmail);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.fillingInvestorInformation(Users.ADMIN);
         s2Trust.checkedCitizenFN();
         s2Trust.chooseCountryCanada();
         s2Trust.chooseProvinceAlberta();
@@ -59,8 +61,8 @@ public class CreateTrustAccount extends TestBase{
         step1Account.chooseAccountTrust();
         step1Account.clickSaveButton();
         S2Trust s2Trust = new S2Trust(app.getDriver());
-        s2Trust.fillingInvestorInformation("Vladyslav", "Chesalov", "11/27/1987", "345678",
-                "Milutenka Street", "Kharkiv", "1234", "0668843478", app.testEmail);
+        HelperMethods helperMethods = new HelperMethods();
+        helperMethods.fillingInvestorInformation(Users.ADMIN);
         s2Trust.checkedCitizenFN();
         s2Trust.chooseCountryCanada();
         s2Trust.chooseProvinceAlberta();

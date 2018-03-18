@@ -73,6 +73,7 @@ public class ApplicationManager {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 3);
         softAssert = new SoftAssert();
+
     }
 
     public void stop() {
