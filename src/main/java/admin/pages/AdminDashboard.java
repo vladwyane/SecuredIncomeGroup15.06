@@ -51,4 +51,12 @@ public class AdminDashboard {
         return statusFirstInvestment.getText();
     }
 
+    @Name("Value First Investment")
+    @FindBy(xpath = "(//table//td)[11]")
+    private HtmlElement valueFirstInvestment;
+
+    public String getValueFirstInvestment() {
+        return valueFirstInvestment.getText();
+    }
+
 }
