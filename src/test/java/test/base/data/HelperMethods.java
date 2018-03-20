@@ -114,7 +114,7 @@ public class HelperMethods extends TestBase{
         createAccount.enterLogin(users.getEmail());
         createAccount.enterPassword(users.getPassword());
         createAccount.clickCaptcha();
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         createAccount.clickSubmitButton();
     }
 

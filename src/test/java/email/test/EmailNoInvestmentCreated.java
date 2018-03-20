@@ -20,7 +20,7 @@ public class EmailNoInvestmentCreated extends TestBase {
         adminDashboard.clickLinkNoInvCreated();
         AdminNoInvestmentCreated adminNoInvestmentCreated = new AdminNoInvestmentCreated(app.getDriver());
         adminNoInvestmentCreated.clickFirstLinkSend();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         app.sAssert().assertEquals(adminNoInvestmentCreated.getFirstMailNum(), "1");
         app.sAssert().assertAll();
     }

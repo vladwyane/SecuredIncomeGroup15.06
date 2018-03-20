@@ -59,4 +59,12 @@ public class AdminDashboard {
         return valueFirstInvestment.getText();
     }
 
+    @Name("Link Retirement Setup")
+    @FindBy(xpath = "//a/div/p[text()='Retirement Setup']")
+    private Link linkRetirementSetup;
+
+    public void clickLinkRetirementSetup() {
+        linkRetirementSetup.click();
+    }
+
 }

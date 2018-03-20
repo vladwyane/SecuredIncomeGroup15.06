@@ -92,6 +92,7 @@ public enum Users {
     Users(String userFirstName, String userLastName, String email, String password, String birthDate, String SSN,
           String stAddress, String city, String pCode, String phNumber, String position, String entityName,
           String taxNum, String retireName, String divFullName, String secondAddress) {
+
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.email = email;
