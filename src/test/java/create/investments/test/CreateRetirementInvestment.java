@@ -20,7 +20,7 @@ public class CreateRetirementInvestment extends TestBase {
         app.goTo("http://securedincomegroup.stgng.co/");
     }
 
-    @Test//(groups = "CreateRetirementInvestment", dependsOnGroups = "EmailRenewInvestment", alwaysRun = true, priority = 50)
+    @Test(groups = "CreateRetirementInvestment", dependsOnGroups = "EmailRenewInvestment", alwaysRun = true, priority = 50)
     public void createRetireInvest6Month() throws InterruptedException {
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.CHESALOV);
