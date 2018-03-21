@@ -52,11 +52,11 @@ public class CreateRetirementInvestment extends TestBase {
         AdminRetirementSetupPending adminRetirementSetupPending = new AdminRetirementSetupPending(app.getDriver());
         adminRetirementSetupPending.clickFirstCheckBoxRetSet();
         adminRetirementSetupPending.clickChangeStatusFunPend();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         header.clickLinkSign();
         helperMethods.signIn(Users.CHESALOV);
         userAccounts.clickAccountNameRetirement();
-        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $5,000");
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $5,000.00");
         app.sAssert().assertAll();
     }
 

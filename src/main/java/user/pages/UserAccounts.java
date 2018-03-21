@@ -124,7 +124,17 @@ public class UserAccounts {
         alertFinishFunding.click();
     }
 
+    @Name("Renew Pending")
+    @FindBy(xpath = "//*[@data-prop-name='lrenew']//span")
+    private Link alertRenewPending;
 
+    public String getAlertRenewPending() {
+        return alertRenewPending.getText();
+    }
+
+    public void clickAlertRenewPending() {
+        alertRenewPending.click();
+    }
 
 
 }
