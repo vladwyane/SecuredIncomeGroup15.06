@@ -19,7 +19,7 @@ public class CreateJointInvestment extends TestBase{
         helperMethods.signIn(Users.CHESALOV);
     }
 
-    @Test (groups = "CreateJointInvestment", dependsOnGroups = "AddIndividualInvestment", alwaysRun = true, priority = 44)
+    @Test(groups = "CreateJointInvestment", dependsOnGroups = "AddIndividualInvestment", alwaysRun = true, priority = 44)
     public void createJointInvest1Year() {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameJoint();

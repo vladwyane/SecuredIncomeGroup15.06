@@ -43,7 +43,6 @@ public class EmailRenewInvestment extends TestBase {
         userAccounts.clickAccountNameJoint();
         app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 05/01/2018");
         app.sAssert().assertAll();
-
     }
 
     @Test (groups = "EmailRenewInvestment", dependsOnGroups = "CreateJointInvestment", alwaysRun = true, priority = 48)

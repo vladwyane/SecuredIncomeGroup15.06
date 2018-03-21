@@ -33,9 +33,7 @@ public class RemoveAccount {
     public void changeYearPublish(String year) throws InterruptedException {
         driver.findElement(By.id("wp-admin-bar-site-name")).click();
         driver.findElement(By.id("menu-posts-investment")).click();
-        driver.findElements(By.cssSelector("#the-list tr")).get(0).click();
-        Thread.sleep(2000);
-        driver.findElements(By.cssSelector(".edit")).get(0).click();
+        driver.findElements(By.cssSelector(".row-title")).get(0).click();
         driver.findElement(By.xpath("//*[contains(@class, 'edit-timestamp')]")).click();
         driver.findElement(By.id("aa")).clear();
         Thread.sleep(2000);
