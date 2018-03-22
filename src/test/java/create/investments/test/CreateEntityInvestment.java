@@ -52,7 +52,7 @@ public class CreateEntityInvestment extends TestBase {
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.ADMIN);
         RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
-        actionsWithWPAdmin.changeYearPublish("2015");
+        actionsWithWPAdmin.changeYearPublish("04","2015");
         app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
         AdminDashboard adminDashboard = new AdminDashboard(app.getDriver());
         adminDashboard.clickLinkFundsPending();

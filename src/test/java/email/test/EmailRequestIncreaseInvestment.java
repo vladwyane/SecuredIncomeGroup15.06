@@ -13,7 +13,7 @@ import user.pages.UserAccounts;
 
 public class EmailRequestIncreaseInvestment extends TestBase{
 
-    @Test(groups = "EmailRequestIncreaseInvestment", dependsOnGroups = "EmailActivateInvestment", alwaysRun = true, priority = 32)
+    @Test(groups = "EmailRequestIncreaseInvestment", dependsOnGroups = "EmailActivateInvestment", alwaysRun = true, priority = 30)
     public void testRequestIncreaseInvestment() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co");
         HelperMethods helperMethods = new HelperMethods();
@@ -26,7 +26,7 @@ public class EmailRequestIncreaseInvestment extends TestBase{
         individualInvestments.clickSubmitFundingButton();
         //waiting until email will be sent
         Thread.sleep(3000);
-        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $100");
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $100.00");
         app.sAssert().assertEquals(individualInvestments.getDateFunded(), "03/07/2018");
         app.sAssert().assertEquals(individualInvestments.getMaturityDate(), "06/07/2018");
         app.sAssert().assertAll();

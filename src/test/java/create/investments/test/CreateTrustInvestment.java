@@ -20,7 +20,7 @@ import user.pages.UserAccounts;
 public class CreateTrustInvestment extends TestBase{
 
     @Test(groups = "CreateTrustInvestment", dependsOnGroups = "EmailRetirementInvestment", alwaysRun = true, priority = 58)
-    public void createTrustInvest1Year() {
+    public void testCreateTrustInvest1Year() {
         app.goTo("http://securedincomegroup.stgng.co/");
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.CHESALOV);
@@ -54,7 +54,7 @@ public class CreateTrustInvestment extends TestBase{
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.ADMIN);
         RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
-        actionsWithWPAdmin.changeYearPublish("2017");
+        actionsWithWPAdmin.changeYearPublish("04","2017");
         app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
         AdminDashboard adminDashboard = new AdminDashboard(app.getDriver());
         adminDashboard.clickLinkFundsPending();

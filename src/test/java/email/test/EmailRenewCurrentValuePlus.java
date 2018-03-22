@@ -40,4 +40,10 @@ public class EmailRenewCurrentValuePlus extends TestBase {
         app.sAssert().assertEquals(app.checkGoogleMail(Users.VLAD), "RENEW & INCREASE INVESTMENT");
         app.sAssert().assertAll();
     }
+
+    @Test (groups = "EmailRenewCurrentValuePlus", dependsOnGroups = "CreateTrustInvestment", alwaysRun = true, priority = 64)
+    public void testEmailRenewCurrentValuePlusForUser() throws InterruptedException {
+        app.sAssert().assertEquals(app.checkGoogleMail(Users.VLADWYANE), "Investment is Set to Renew + Awaiting Funds");
+        app.sAssert().assertAll();
+    }
 }

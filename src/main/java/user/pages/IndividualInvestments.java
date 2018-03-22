@@ -34,6 +34,38 @@ public class IndividualInvestments {
         linkCreateInvestment.click();
     }
 
+    @Name("Link View Alerts and Actions")
+    @FindBy(xpath = "//*[contains(@class, 'sub-nav')]//p[contains(text(), 'View Alerts and Actions')]")
+    private Link linkViewAlerts;
+
+    public String getLinkViewAlerts() {
+        return linkViewAlerts.getText();
+    }
+
+    public void clickLinkViewAlerts() {
+        linkViewAlerts.click();
+    }
+
+    @Name("Link Write Your Review")
+    @FindBy(xpath = "//*[contains(@class, 'sub-nav')]//p[contains(text(), 'Write Your Review')]")
+    private Link linkWriteReview;
+
+    public String getLinkWriteReview() {
+        return linkWriteReview.getText();
+    }
+
+    public void clickLinkWriteReview() {
+        linkWriteReview.click();
+    }
+
+    @Name("Button Do Not Renew")
+    @FindBy(xpath = "(//*[@data-prop-name='not-renew'])[1]")
+    private Button submitDoNotRenew;
+
+    public void clickSubmitDoNotRenew() {
+        submitDoNotRenew.click();
+    }
+
     @Name("Link Add To Investment")
     @FindBy(xpath = "//div[@class='info-heading']//a[@data-prop-name='add-funds']")
     private Link linkAddToInvestment;

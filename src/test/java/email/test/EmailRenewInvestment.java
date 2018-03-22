@@ -20,7 +20,7 @@ public class EmailRenewInvestment extends TestBase {
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.ADMIN);
         RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
-        actionsWithWPAdmin.changeYearPublish("2017");
+        actionsWithWPAdmin.changeYearPublish("05","2017");
         app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
         AdminDashboard adminDashboard = new AdminDashboard(app.getDriver());
         adminDashboard.clickLinkFundsPending();
