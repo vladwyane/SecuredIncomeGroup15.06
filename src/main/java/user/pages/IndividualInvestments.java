@@ -112,5 +112,25 @@ public class IndividualInvestments {
         return maturityDate.getText();
     }
 
+    @Name("Link Tab Closed")
+    @FindBy(xpath = "//*[contains(@class, 'info-tabs-area')]//a[contains(text(), 'Closed')]")
+    private Link linkTabClosed;
+
+    public String getLinkTabClosed() {
+        return linkTabClosed.getText();
+    }
+
+    public void clickLinkTabClosed() {
+        linkTabClosed.click();
+    }
+
+    @Name("Investment Status")
+    @FindBy(xpath = "(//div[@class='footer-person-info']//p[text()='Status:  ']/strong)[1]")
+    private HtmlElement investmentStatus;
+
+    public String getInvestmentStatus() {
+        return investmentStatus.getText();
+    }
+
 
 }

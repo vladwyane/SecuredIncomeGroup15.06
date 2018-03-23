@@ -31,7 +31,7 @@ public class EmailMyReview extends TestBase {
 
     @Test (groups = "EmailMyReview", dependsOnGroups = "EmailRenewPortionInvesment", alwaysRun = true, priority = 76)
     public void testEmailMyReviewForAdmin() throws InterruptedException {
-        app.sAssert().assertEquals(app.checkGoogleMail(Users.ADMIN), "Customer Review.");
+        app.sAssert().assertEquals(app.checkGoogleMail(Users.VLAD), "Customer Review.");
         app.sAssert().assertAll();
     }
 

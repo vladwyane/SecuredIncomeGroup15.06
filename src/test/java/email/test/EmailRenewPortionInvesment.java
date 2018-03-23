@@ -27,7 +27,7 @@ public class EmailRenewPortionInvesment extends TestBase {
     }
 
     @Test (groups = "EmailRenewPortionInvesment", dependsOnGroups = "CreateEntityInvestment", alwaysRun = true, priority = 72)
-    public void testEmailRegistrationForUser() throws InterruptedException {
+    public void testEmailRenewPortionInvForUser() throws InterruptedException {
         app.sAssert().assertEquals(app.checkGoogleMail(Users.VLADWYANE), "A Portion of Investment is Set to Renew.");
         app.sAssert().assertAll();
     }

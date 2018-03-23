@@ -28,7 +28,7 @@ public class FancyboxDoNotRenew {
     }
 
     @Name("Button Terminate Investment")
-    @FindBy(xpath = "//a[contains(text(), 'Terminate Investment')]")
+    @FindBy(xpath = "//input[@value='Terminate Investment']")
     private Button buttonTermInvest;
 
     public void clickButtonTermInvest() {
