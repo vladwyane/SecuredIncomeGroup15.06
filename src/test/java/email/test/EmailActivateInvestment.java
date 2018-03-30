@@ -4,10 +4,13 @@ import admin.pages.AdminActivateFunds;
 import admin.pages.AdminDashboard;
 import admin.pages.AdminFundsPending;
 import admin.pages.FancyBox;
+import common.elements.Header;
 import org.testng.annotations.Test;
 import test.base.TestBase;
 import test.base.data.HelperMethods;
 import test.base.data.Users;
+import user.pages.IndividualInvestments;
+import user.pages.UserAccounts;
 
 public class EmailActivateInvestment extends TestBase {
 
@@ -25,13 +28,22 @@ public class EmailActivateInvestment extends TestBase {
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
         adminActivateFunds.enterAccountNumber(investNum);
         adminActivateFunds.enterFundAmount("5000");
-        adminActivateFunds.enterFundDate("03/07/2018");
+        adminActivateFunds.enterFundDate("03/23/2018");
         adminActivateFunds.clickSubmitButton();
         Thread.sleep(2000);
         FancyBox fancyBox = new FancyBox(app.getDriver());
         fancyBox.clickSubmitButton();
-        app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
-        app.sAssert().assertEquals(adminDashboard.getStatusFirstInvestment(), "Active");
+        Header header = new Header(app.getDriver());
+        header.clickLinkSign();
+        helperMethods.signIn(Users.CHESALOV);
+        UserAccounts userAccounts = new UserAccounts(app.getDriver());
+        userAccounts.clickAccountNameIndividual();
+        IndividualInvestments individualInvestments = new IndividualInvestments(app.getDriver());
+        app.sAssert().assertEquals(individualInvestments.getDateFunded(), "03/23/2018");
+        app.sAssert().assertEquals(individualInvestments.getMaturityDate(), "06/23/2018");
+        app.sAssert().assertEquals(individualInvestments.getInvestmentRate(), "6%");
+        app.sAssert().assertEquals(individualInvestments.getInvestmentTerm(), "3 MONTH(S)");
+        app.sAssert().assertEquals(individualInvestments.getInvestmentStatus(), "ACTIVE");
         app.sAssert().assertAll();
     }
 

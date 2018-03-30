@@ -97,7 +97,7 @@ public class IndividualInvestments {
     }
 
     @Name("DATE FUNDED")
-    @FindBy(xpath = "//div[@class='footer-person-info']//p[text()='Date Funded: ']/strong")
+    @FindBy(xpath = "(//div[@class='footer-person-info']//p[text()='Date Funded: ']/strong)[1]")
     private HtmlElement dateFunded;
 
     public String getDateFunded() {
@@ -105,7 +105,7 @@ public class IndividualInvestments {
     }
 
     @Name("MATURITY DATE")
-    @FindBy(xpath = "//div[@class='footer-person-info']//p[text()='Maturity Date: ']/strong")
+    @FindBy(xpath = "(//div[@class='footer-person-info']//p[text()='Maturity Date: ']/strong)[1]")
     private HtmlElement maturityDate;
 
     public String getMaturityDate() {
@@ -132,5 +132,28 @@ public class IndividualInvestments {
         return investmentStatus.getText();
     }
 
+    @Name("Investment Rate")
+    @FindBy(xpath = "(//div[@class='footer-person-info']//p[text()='Rate : ']/strong)[1]")
+    private HtmlElement investmentRate;
+
+    public String getInvestmentRate() {
+        return investmentRate.getText();
+    }
+
+    @Name("Investment Term")
+    @FindBy(xpath = "(//div[@class='footer-person-info']//p[text()='Term: ']/strong)[1]")
+    private HtmlElement investmentTerm;
+
+    public String getInvestmentTerm() {
+        return investmentTerm.getText();
+    }
+
+    @Name("INVESTMENT VALUE")
+    @FindBy(xpath = "(//span[text()='Investment Value']/ancestor::div[1]//following-sibling::div/strong)[1]")
+    private HtmlElement investmentValue;
+
+    public String getInvestmentValue() {
+        return investmentValue.getText();
+    }
 
 }

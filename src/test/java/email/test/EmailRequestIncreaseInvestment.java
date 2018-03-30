@@ -27,8 +27,6 @@ public class EmailRequestIncreaseInvestment extends TestBase{
         //waiting until email will be sent
         Thread.sleep(3000);
         app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $100.00");
-        app.sAssert().assertEquals(individualInvestments.getDateFunded(), "03/07/2018");
-        app.sAssert().assertEquals(individualInvestments.getMaturityDate(), "06/07/2018");
         app.sAssert().assertAll();
 
     }

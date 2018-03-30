@@ -9,6 +9,7 @@ import create.account.step2account.S2Joint;
 import create.account.step2account.S2Trust;
 import create.investment.Step1Invest;
 import create.investment.Step2Invest;
+import create.investment.Step5Invest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
@@ -63,6 +64,9 @@ public class CreateEntityAccount extends TestBase {
 
     @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherEntityAccount() {
+        Step1Invest step1Invest = new Step1Invest(app.getDriver());
+        step1Invest.chooseInvestment3Year();
+        step1Invest.enterInvestmentAmount("25000.99");
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountEntity();
         step1Account.clickSaveButton();
@@ -74,12 +78,18 @@ public class CreateEntityAccount extends TestBase {
         s2Entity.chooseEStateNevada();
         s2Entity.checkedFinStatusAny();
         s2Entity.checkedKnowledgeNo();
+        Step2Invest step2Invest = new Step2Invest(app.getDriver());
+        step2Invest.checkedPayoutDividends();
+        step2Invest.checkedDivCheckboxSameAddress();
         s2Entity.clickSaveButton();
         Step3Account step3Account = new Step3Account(app.getDriver());
         step3Account.clickConfirmButton();
         Step4Account step4Account = new Step4Account(app.getDriver());
         step4Account.agreeAll("Sign");
         step4Account.clickFinishButton();
+        Step5Invest step5Invest = new Step5Invest(app.getDriver());
+        step5Invest.clickFundByWireButton();
+        step5Invest.clickMyAccountButton();
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Entity/Corporation");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "ENTITYNAME");
@@ -88,6 +98,9 @@ public class CreateEntityAccount extends TestBase {
 
     @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherEntityAccountWithSameAddress() {
+        Step1Invest step1Invest = new Step1Invest(app.getDriver());
+        step1Invest.chooseInvestment3Year();
+        step1Invest.enterInvestmentAmount("25000.99");
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountEntity();
         step1Account.clickSaveButton();
@@ -98,12 +111,18 @@ public class CreateEntityAccount extends TestBase {
         s2Entity.chooseEntityTypeLLC();
         s2Entity.checkedFinStatus30000();
         s2Entity.checkedKnowledgeYes();
+        Step2Invest step2Invest = new Step2Invest(app.getDriver());
+        step2Invest.checkedPayoutDividends();
+        step2Invest.checkedDivCheckboxSameAddress();
         s2Entity.clickSaveButton();
         Step3Account step3Account = new Step3Account(app.getDriver());
         step3Account.clickConfirmButton();
         Step4Account step4Account = new Step4Account(app.getDriver());
         step4Account.agreeAll("Sign");
         step4Account.clickFinishButton();
+        Step5Invest step5Invest = new Step5Invest(app.getDriver());
+        step5Invest.clickFundByWireButton();
+        step5Invest.clickMyAccountButton();
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Entity/Llc");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "ENTITYNAME");

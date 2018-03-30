@@ -1,10 +1,13 @@
 package email.test;
 
 import admin.pages.*;
+import common.elements.Header;
 import org.testng.annotations.Test;
 import test.base.TestBase;
 import test.base.data.HelperMethods;
 import test.base.data.Users;
+import user.pages.IndividualInvestments;
+import user.pages.UserAccounts;
 
 public class EmailAddInvestment extends TestBase{
 
@@ -44,13 +47,18 @@ public class EmailAddInvestment extends TestBase{
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
         adminActivateFunds.enterAccountNumber(investNum);
         adminActivateFunds.enterFundAmount("100");
-        adminActivateFunds.enterFundDate("03/10/2018");
+        adminActivateFunds.enterFundDate("03/24/2018");
         adminActivateFunds.clickSubmitButton();
         Thread.sleep(2000);
         FancyBox fancyBox = new FancyBox(app.getDriver());
         fancyBox.clickSubmitButton();
-        app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
-        app.sAssert().assertEquals(adminDashboard.getValueFirstInvestment(), "5,100.00");
+        Header header = new Header(app.getDriver());
+        header.clickLinkSign();
+        helperMethods.signIn(Users.CHESALOV);
+        UserAccounts userAccounts = new UserAccounts(app.getDriver());
+        userAccounts.clickAccountNameIndividual();
+        IndividualInvestments individualInvestments = new IndividualInvestments(app.getDriver());
+        app.sAssert().assertEquals(individualInvestments.getInvestmentValue(), "$5,100.00");
         app.sAssert().assertAll();
     }
 

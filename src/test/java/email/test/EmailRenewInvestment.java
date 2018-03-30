@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 import test.base.TestBase;
 import test.base.data.HelperMethods;
 import test.base.data.Users;
+import user.pages.IndividualInvestments;
+import user.pages.JointInvestments;
 import user.pages.UserAccounts;
 
 public class EmailRenewInvestment extends TestBase {
@@ -19,13 +21,13 @@ public class EmailRenewInvestment extends TestBase {
         app.goTo("http://securedincomegroup.stgng.co");
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.ADMIN);
-        RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
-        actionsWithWPAdmin.changeYearPublish("05","2017");
-        app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
         AdminDashboard adminDashboard = new AdminDashboard(app.getDriver());
         adminDashboard.clickLinkFundsPending();
         AdminFundsPending adminFundsPending = new AdminFundsPending(app.getDriver());
         String investNum = adminFundsPending.getFirstInvNum();
+        Thread.sleep(5000);
+        RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
+        actionsWithWPAdmin.changeYearPublish("05","2017");
         app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
         adminDashboard.clickLinkFundsActivate();
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
@@ -41,7 +43,13 @@ public class EmailRenewInvestment extends TestBase {
         helperMethods.signIn(Users.CHESALOV);
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameJoint();
+        JointInvestments jointInvestments = new JointInvestments(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 05/01/2018");
+        app.sAssert().assertEquals(jointInvestments.getDateFunded(), "05/01/2017");
+        app.sAssert().assertEquals(jointInvestments.getMaturityDate(), "05/01/2018");
+        app.sAssert().assertEquals(jointInvestments.getInvestmentRate(), "7.15%");
+        app.sAssert().assertEquals(jointInvestments.getInvestmentTerm(), "1 YEAR(S)");
+        app.sAssert().assertEquals(jointInvestments.getInvestmentStatus(), "ACTIVE");
         app.sAssert().assertAll();
     }
 

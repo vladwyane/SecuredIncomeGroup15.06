@@ -21,7 +21,7 @@ public class AddIndividualInvestment extends TestBase {
 
     @Test(groups = "AddIndividualInvestment", dependsOnGroups = "EmailAddInvestment", alwaysRun = true, priority = 42)
     public void testAddCountInvestments() throws InterruptedException {
-        addCountInvestment(8);
+        addCountInvestment(6);
     }
 
     public void addCountInvestment(int count) throws InterruptedException {
@@ -59,7 +59,7 @@ public class AddIndividualInvestment extends TestBase {
             adminDashboard.clickLinkFundsActivate();
             adminActivateFunds.enterAccountNumber(investNum);
             adminActivateFunds.enterFundAmount(sum);
-            day = Integer.toString(10 + i);
+            day = Integer.toString(24 + i);
             adminActivateFunds.enterFundDate("03/" + day + "/2018");
             adminActivateFunds.clickSubmitButton();
             fancyBox.clickSubmitButton();

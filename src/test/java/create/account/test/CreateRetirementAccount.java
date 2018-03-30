@@ -4,6 +4,9 @@ import create.account.Step1Account;
 import create.account.Step3Account;
 import create.account.Step4Account;
 import create.account.step2account.S2Retirement;
+import create.investment.Step1Invest;
+import create.investment.Step2Invest;
+import create.investment.Step5Invest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
@@ -55,6 +58,9 @@ public class CreateRetirementAccount extends TestBase{
 
     @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherRetirementAccount() {
+        Step1Invest step1Invest = new Step1Invest(app.getDriver());
+        step1Invest.chooseInvestment6Month();
+        step1Invest.enterInvestmentAmount("5,000");
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountRetirement();
         step1Account.clickSaveButton();
@@ -66,12 +72,18 @@ public class CreateRetirementAccount extends TestBase{
         s2Retirement.chooseRetStateNevada();;
         s2Retirement.checkedFinStatus1Mil();
         s2Retirement.checkedKnowledgeYes();
+        Step2Invest step2Invest = new Step2Invest(app.getDriver());
+        step2Invest.checkedPayoutDividends();
+        step2Invest.checkedDivCheckboxSameAddress();
         s2Retirement.clickSaveButton();
         Step3Account step3Account = new Step3Account(app.getDriver());
         step3Account.clickConfirmButton();
         Step4Account step4Account = new Step4Account(app.getDriver());
         step4Account.agreeAll("Sign");
         step4Account.clickFinishButton();
+        Step5Invest step5Invest = new Step5Invest(app.getDriver());
+        step5Invest.clickFundByWireButton();
+        step5Invest.clickMyAccountButton();
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Retirement/Simple IRA");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV");
@@ -80,6 +92,9 @@ public class CreateRetirementAccount extends TestBase{
 
     @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherRetirementAccountWithoutRetireInfo() {
+        Step1Invest step1Invest = new Step1Invest(app.getDriver());
+        step1Invest.chooseInvestment6Month();
+        step1Invest.enterInvestmentAmount("5,000");
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountRetirement();
         step1Account.clickSaveButton();
@@ -87,12 +102,18 @@ public class CreateRetirementAccount extends TestBase{
         s2Retirement.chooseType403b();
         s2Retirement.checkedFinStatusAny();
         s2Retirement.checkedKnowledgeNo();
+        Step2Invest step2Invest = new Step2Invest(app.getDriver());
+        step2Invest.checkedPayoutDividends();
+        step2Invest.checkedDivCheckboxSameAddress();
         s2Retirement.clickSaveButton();
         Step3Account step3Account = new Step3Account(app.getDriver());
         step3Account.clickConfirmButton();
         Step4Account step4Account = new Step4Account(app.getDriver());
         step4Account.agreeAll("Sign");
         step4Account.clickFinishButton();
+        Step5Invest step5Invest = new Step5Invest(app.getDriver());
+        step5Invest.clickFundByWireButton();
+        step5Invest.clickMyAccountButton();
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Retirement/403(b)");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV");
