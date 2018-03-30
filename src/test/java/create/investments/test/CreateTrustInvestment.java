@@ -12,21 +12,22 @@ import org.testng.annotations.Test;
 import test.base.TestBase;
 import test.base.data.HelperMethods;
 import test.base.data.Users;
-import user.pages.IndividualInvestments;
-import user.pages.JointInvestments;
-import user.pages.TrustInvestments;
-import user.pages.UserAccounts;
+import user.pages.*;
 
 public class CreateTrustInvestment extends TestBase{
 
     @Test(groups = "CreateTrustInvestment", dependsOnGroups = "EmailRetirementInvestment", alwaysRun = true, priority = 58)
-    public void testCreateTrustInvest1Year() {
+    public void testCreateTrustInvest1Year() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co/");
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.CHESALOV);
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameTrust();
         TrustInvestments trustInvestments = new TrustInvestments(app.getDriver());
+        trustInvestments.clickLinkDelNewInvestt();
+        FancyboxDeleteNewInvestments fancyboxDeleteNewInvestments = new FancyboxDeleteNewInvestments(app.getDriver());
+        fancyboxDeleteNewInvestments.clickButtonDeleteInv();
+        //Thread.sleep(5000);
         trustInvestments.clickLinkCreateInvestment();
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment1Year();
@@ -53,13 +54,12 @@ public class CreateTrustInvestment extends TestBase{
         app.goTo("http://securedincomegroup.stgng.co");
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.ADMIN);
-        RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
-        actionsWithWPAdmin.changeYearPublish("04","2017");
-        app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
         AdminDashboard adminDashboard = new AdminDashboard(app.getDriver());
         adminDashboard.clickLinkFundsPending();
         AdminFundsPending adminFundsPending = new AdminFundsPending(app.getDriver());
         String investNum = adminFundsPending.getFirstInvNum();
+        RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
+        actionsWithWPAdmin.changeYearPublish("04","2017");
         app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
         adminDashboard.clickLinkFundsActivate();
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
@@ -75,6 +75,12 @@ public class CreateTrustInvestment extends TestBase{
         helperMethods.signIn(Users.CHESALOV);
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameTrust();
+        TrustInvestments trustInvestments = new TrustInvestments(app.getDriver());
+        app.sAssert().assertEquals(trustInvestments.getDateFunded(), "04/03/2017");
+        app.sAssert().assertEquals(trustInvestments.getMaturityDate(), "04/03/2018");
+        app.sAssert().assertEquals(trustInvestments.getInvestmentRate(), "7.15%");
+        app.sAssert().assertEquals(trustInvestments.getInvestmentTerm(), "1 YEAR(S)");
+        app.sAssert().assertEquals(trustInvestments.getInvestmentStatus(), "ACTIVE");
         app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/03/2018");
         app.sAssert().assertAll();
 

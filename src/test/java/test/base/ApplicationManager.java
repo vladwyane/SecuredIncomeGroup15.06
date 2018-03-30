@@ -70,8 +70,8 @@ public class ApplicationManager {
         }
         //driver.manage().window().fullscreen();
         driver.manage().timeouts().pageLoadTimeout(300, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 3);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 5);
         softAssert = new SoftAssert();
 
     }

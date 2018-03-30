@@ -156,4 +156,12 @@ public class IndividualInvestments {
         return investmentValue.getText();
     }
 
+    @Name("Link Delete Ne Investment")
+    @FindBy(xpath = "(//*[@data-prop-name='delete'])[1]")
+    private Link linkDelNewInvest;
+
+    public void clickLinkDelNewInvestt() {
+        linkDelNewInvest.click();
+    }
+
 }

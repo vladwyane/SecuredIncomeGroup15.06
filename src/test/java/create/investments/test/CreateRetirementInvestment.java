@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import test.base.TestBase;
 import test.base.data.HelperMethods;
 import test.base.data.Users;
+import user.pages.FancyboxDeleteNewInvestments;
 import user.pages.JointInvestments;
 import user.pages.RetirementInvestments;
 import user.pages.UserAccounts;
@@ -27,6 +28,10 @@ public class CreateRetirementInvestment extends TestBase {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameRetirement();
         RetirementInvestments retirementInvestments = new RetirementInvestments(app.getDriver());
+        retirementInvestments.clickLinkDelNewInvestt();
+        FancyboxDeleteNewInvestments fancyboxDeleteNewInvestments = new FancyboxDeleteNewInvestments(app.getDriver());
+        fancyboxDeleteNewInvestments.clickButtonDeleteInv();
+        //Thread.sleep(5000);
         retirementInvestments.clickLinkCreateInvestment();
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment6Month();
@@ -60,36 +65,6 @@ public class CreateRetirementInvestment extends TestBase {
         app.sAssert().assertAll();
     }
 
-    @Test(groups = "CreateRetirementInvestment", dependsOnGroups = "EmailRenewCurrentValue", alwaysRun = true, priority = 55)
-    public void testActivateRetireInvestment() throws InterruptedException {
-        app.goTo("http://securedincomegroup.stgng.co");
-        HelperMethods helperMethods = new HelperMethods();
-        helperMethods.signIn(Users.ADMIN);
-        RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
-        actionsWithWPAdmin.changeYearPublish("11","2017");
-        app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
-        AdminDashboard adminDashboard = new AdminDashboard(app.getDriver());
-        adminDashboard.clickLinkFundsPending();
-        AdminFundsPending adminFundsPending = new AdminFundsPending(app.getDriver());
-        String investNum = adminFundsPending.getFirstInvNum();
-        app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
-        adminDashboard.clickLinkFundsActivate();
-        AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
-        adminActivateFunds.enterAccountNumber(investNum);
-        adminActivateFunds.enterFundAmount("5,000");
-        adminActivateFunds.enterFundDate("11/01/2017");
-        adminActivateFunds.clickSubmitButton();
-        Thread.sleep(2000);
-        FancyBox fancyBox = new FancyBox(app.getDriver());
-        fancyBox.clickSubmitButton();
-        Header header = new Header(app.getDriver());
-        header.clickLinkSign();
-        helperMethods.signIn(Users.CHESALOV);
-        UserAccounts userAccounts = new UserAccounts(app.getDriver());
-        userAccounts.clickAccountNameRetirement();
-        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 05/01/2018");
-        app.sAssert().assertAll();
 
-    }
 
 }

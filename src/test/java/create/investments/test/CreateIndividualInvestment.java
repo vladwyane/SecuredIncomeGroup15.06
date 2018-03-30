@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import test.base.TestBase;
 import test.base.data.HelperMethods;
 import test.base.data.Users;
+import user.pages.FancyboxDeleteNewInvestments;
 import user.pages.IndividualInvestments;
 import user.pages.UserAccounts;
 
@@ -20,10 +21,14 @@ public class CreateIndividualInvestment extends TestBase {
     }
 
     @Test (groups = "CreateIndividualInvestment", dependsOnGroups = "CreateAccount", alwaysRun = true, priority = 16)
-    public void createIndInvest3Month() {
+    public void createIndInvest3Month() throws InterruptedException {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameIndividual();
         IndividualInvestments individualInvestments = new IndividualInvestments(app.getDriver());
+        individualInvestments.clickLinkDelNewInvestt();
+        FancyboxDeleteNewInvestments fancyboxDeleteNewInvestments = new FancyboxDeleteNewInvestments(app.getDriver());
+        fancyboxDeleteNewInvestments.clickButtonDeleteInv();
+        //Thread.sleep(5000);
         individualInvestments.clickLinkCreateInvestment();
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment3Month();

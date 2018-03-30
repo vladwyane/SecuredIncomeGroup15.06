@@ -20,7 +20,7 @@ public class AdminDashboard {
     }
 
     @Name("Link No Investment Created")
-    @FindBy(xpath = "//a/div/p[text()='No Investment Created']")
+    @FindBy(xpath = "//a/div/p[text()='Account Pending']")
     private Link linkNoInvCreated;
 
     public void clickLinkNoInvCreated() {
