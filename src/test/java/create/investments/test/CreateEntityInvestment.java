@@ -61,7 +61,7 @@ public class CreateEntityInvestment extends TestBase {
         AdminFundsPending adminFundsPending = new AdminFundsPending(app.getDriver());
         String investNum = adminFundsPending.getFirstInvNum();
         RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
-        actionsWithWPAdmin.changeYearPublish("04","2015");
+        actionsWithWPAdmin.changeYearPublish("03","2015");
         app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
         adminDashboard.clickLinkFundsActivate();
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());

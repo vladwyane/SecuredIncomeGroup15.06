@@ -59,13 +59,13 @@ public class CreateTrustInvestment extends TestBase{
         AdminFundsPending adminFundsPending = new AdminFundsPending(app.getDriver());
         String investNum = adminFundsPending.getFirstInvNum();
         RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
-        actionsWithWPAdmin.changeYearPublish("04","2017");
+        actionsWithWPAdmin.changeYearPublish("03","2017");
         app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
         adminDashboard.clickLinkFundsActivate();
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
         adminActivateFunds.enterAccountNumber(investNum);
         adminActivateFunds.enterFundAmount("10111.99");
-        adminActivateFunds.enterFundDate("04/03/2017");
+        adminActivateFunds.enterFundDate("04/01/2017");
         adminActivateFunds.clickSubmitButton();
         Thread.sleep(2000);
         FancyBox fancyBox = new FancyBox(app.getDriver());
@@ -76,12 +76,12 @@ public class CreateTrustInvestment extends TestBase{
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameTrust();
         TrustInvestments trustInvestments = new TrustInvestments(app.getDriver());
-        app.sAssert().assertEquals(trustInvestments.getDateFunded(), "04/03/2017");
-        app.sAssert().assertEquals(trustInvestments.getMaturityDate(), "04/03/2018");
+        app.sAssert().assertEquals(trustInvestments.getDateFunded(), "04/01/2017");
+        app.sAssert().assertEquals(trustInvestments.getMaturityDate(), "04/01/2018");
         app.sAssert().assertEquals(trustInvestments.getInvestmentRate(), "7.15%");
         app.sAssert().assertEquals(trustInvestments.getInvestmentTerm(), "1 YEAR(S)");
         app.sAssert().assertEquals(trustInvestments.getInvestmentStatus(), "ACTIVE");
-        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/03/2018");
+        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/01/2018");
         app.sAssert().assertAll();
 
     }
