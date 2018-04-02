@@ -28,7 +28,7 @@ public class EmailActivateInvestment extends TestBase {
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
         adminActivateFunds.enterAccountNumber(investNum);
         adminActivateFunds.enterFundAmount("5000");
-        adminActivateFunds.enterFundDate("03/23/2018");
+        adminActivateFunds.enterFundDate("03/24/2018");
         adminActivateFunds.clickSubmitButton();
         Thread.sleep(2000);
         FancyBox fancyBox = new FancyBox(app.getDriver());
@@ -39,8 +39,8 @@ public class EmailActivateInvestment extends TestBase {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameIndividual();
         IndividualInvestments individualInvestments = new IndividualInvestments(app.getDriver());
-        app.sAssert().assertEquals(individualInvestments.getDateFunded(), "03/23/2018");
-        app.sAssert().assertEquals(individualInvestments.getMaturityDate(), "06/23/2018");
+        app.sAssert().assertEquals(individualInvestments.getDateFunded(), "03/24/2018");
+        app.sAssert().assertEquals(individualInvestments.getMaturityDate(), "06/24/2018");
         app.sAssert().assertEquals(individualInvestments.getInvestmentRate(), "6%");
         app.sAssert().assertEquals(individualInvestments.getInvestmentTerm(), "3 MONTH(S)");
         app.sAssert().assertEquals(individualInvestments.getInvestmentStatus(), "ACTIVE");

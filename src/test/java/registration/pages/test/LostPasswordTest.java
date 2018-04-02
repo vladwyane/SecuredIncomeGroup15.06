@@ -7,7 +7,7 @@ import test.base.data.Users;
 
 public class LostPasswordTest extends TestBase{
 
-    @Ignore
+   @Ignore
     @Test
     public void testCheckMailReset() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co/member-password-lost/");

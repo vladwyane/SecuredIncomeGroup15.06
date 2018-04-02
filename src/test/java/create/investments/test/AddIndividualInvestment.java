@@ -45,7 +45,7 @@ public class AddIndividualInvestment extends TestBase {
             IndividualInvestments individualInvestments = new IndividualInvestments(app.getDriver());
             individualInvestments.clickLinkAddToInvestment();
             finalSumFl = rand.nextFloat() * (maxSum - minSum) + minSum;
-            sum = String.format("%.3f", finalSumFl);
+            sum = String.format("%.2f", finalSumFl);
             individualInvestments.enterAddInvestment(sum);
             individualInvestments.clickSubmitFundingButton();
             Thread.sleep(5000);

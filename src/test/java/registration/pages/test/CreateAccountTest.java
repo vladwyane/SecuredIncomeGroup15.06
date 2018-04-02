@@ -14,7 +14,7 @@ public class CreateAccountTest extends TestBase {
     @Ignore
     @Test (groups = "registration")
     public void testCorrectRegistration() throws InterruptedException {
-        app.goTo("http://securedincomegroup.stgng.co/registration/");
+        app.goTo("http://securedincomegroup.stgng.co");
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.CHESALOV);
         //Waiting for the email to be sent
@@ -39,7 +39,7 @@ public class CreateAccountTest extends TestBase {
     }
 
     @Ignore
-    @Test (dependsOnGroups = "registration")
+    @Test //(dependsOnGroups = "registration")
     public void testSameEmail() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co/registration/");
         CreateAccount createAccount = new CreateAccount(app.getDriver());

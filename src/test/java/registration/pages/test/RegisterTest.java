@@ -24,7 +24,7 @@ public class RegisterTest extends TestBase {
         app.sAssert().assertAll();
     }
 
-    @Ignore
+   @Ignore
     @Test
     public void testErrorLogin() {
         app.goTo(app.securUrl);
@@ -40,7 +40,7 @@ public class RegisterTest extends TestBase {
         app.sAssert().assertAll();
     }
 
-    @Ignore
+   @Ignore
     @Test
     public void testErrorPassword() {
         app.goTo(app.securUrl);

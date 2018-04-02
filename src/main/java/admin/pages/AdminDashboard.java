@@ -67,4 +67,12 @@ public class AdminDashboard {
         linkRetirementSetup.click();
     }
 
+    @Name("Link Pay Dividends")
+    @FindBy(xpath = "//a/div/p[text()='Pay Dividends']")
+    private Link linkPayDividends;
+
+    public void clickLinkPayDividends() {
+        linkPayDividends.click();
+    }
+
 }
