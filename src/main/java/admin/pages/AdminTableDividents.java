@@ -15,6 +15,8 @@ public class AdminTableDividents {
         this.driver = driver;
     }
 
+
+
     public List<WebElement> getRows() {
         List<WebElement> rows = driver.findElements(By.xpath("//tbody/tr"));
         return rows;

@@ -43,7 +43,7 @@ public class EmailRetirementInvestment extends TestBase{
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
         adminActivateFunds.enterAccountNumber(investNum);
         adminActivateFunds.enterFundAmount("5,000");
-        adminActivateFunds.enterFundDate("10/03/2017");
+        adminActivateFunds.enterFundDate("10/04/2017");
         adminActivateFunds.clickSubmitButton();
         Thread.sleep(2000);
         FancyBox fancyBox = new FancyBox(app.getDriver());
@@ -54,12 +54,12 @@ public class EmailRetirementInvestment extends TestBase{
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameRetirement();
         RetirementInvestments retirementInvestments = new RetirementInvestments(app.getDriver());
-        app.sAssert().assertEquals(retirementInvestments.getDateFunded(), "10/03/2017");
-        app.sAssert().assertEquals(retirementInvestments.getMaturityDate(), "04/03/2018");
+        app.sAssert().assertEquals(retirementInvestments.getDateFunded(), "10/04/2017");
+        app.sAssert().assertEquals(retirementInvestments.getMaturityDate(), "04/04/2018");
         app.sAssert().assertEquals(retirementInvestments.getInvestmentRate(), "6.5%");
         app.sAssert().assertEquals(retirementInvestments.getInvestmentTerm(), "6 MONTH(S)");
         app.sAssert().assertEquals(retirementInvestments.getInvestmentStatus(), "ACTIVE");
-        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/03/2018");
+        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/04/2018");
         app.sAssert().assertAll();
 
     }
