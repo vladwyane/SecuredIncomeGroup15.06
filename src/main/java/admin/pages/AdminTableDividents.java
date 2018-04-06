@@ -15,14 +15,30 @@ public class AdminTableDividents {
         this.driver = driver;
     }
 
-
-
     public List<WebElement> getRows() {
         List<WebElement> rows = driver.findElements(By.xpath("//tbody/tr"));
         return rows;
     }
 
-    public List<List<WebElement>> getRowsWithColumns() {
+    public List<WebElement> getAllCell() {
+        List<WebElement> cells = driver.findElements(By.xpath("//tbody//td"));
+        return cells;
+    }
+
+    public float getSumCellsInColumns(int numberColumn, int allColumns) {
+        List<WebElement> cells = getAllCell();
+        float sumCellsOfTwelfthColumns = 0.0f;
+
+        for (int i = 0; i < getRows().size(); i++) {
+            float valueCell = Float.parseFloat(cells.get(numberColumn - 1).getText());
+            sumCellsOfTwelfthColumns += valueCell;
+            numberColumn += allColumns;
+        }
+
+        return sumCellsOfTwelfthColumns;
+    }
+
+    /*public List<List<WebElement>> getRowsWithColumns() {
         List<WebElement> rows = getRows();
         List<List<WebElement>> rowsWithColumns = new ArrayList<List<WebElement>>();
         for(WebElement row : rows) {
@@ -33,18 +49,12 @@ public class AdminTableDividents {
         return rowsWithColumns;
     }
 
-    public float getValueCell(int rowNumber, int columnNumber) {
-        List<List<WebElement>> rowWithColumns = getRowsWithColumns();
-        WebElement cell = rowWithColumns.get(rowNumber - 1).get(columnNumber - 1);
-        return Float.parseFloat(cell.getText());
-    }
+    public String getValueCell(int rowNumber, int columnNumber) {
+        List<List<WebElement>> rowsWithColumns = getRowsWithColumns();
+        WebElement cell = rowsWithColumns.get(rowNumber - 1).get(columnNumber - 1);
+        return cell.getText();
+    }*/
 
-    public float totalEstQD() {
-        float total = 0;
-        for (int i = 1; i < 2; i++) {
-            total +=  getValueCell(i,12);;
-        }
-        return total;
-    }
+
 
 }
