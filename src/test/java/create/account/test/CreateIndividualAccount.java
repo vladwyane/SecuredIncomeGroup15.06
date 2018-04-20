@@ -1,5 +1,6 @@
 package create.account.test;
 
+import common.elements.PageHeading;
 import create.account.Step1Account;
 import create.account.step2account.S2Individual;
 import create.account.Step3Account;
@@ -10,12 +11,14 @@ import create.investment.Step2Invest;
 import create.investment.Step5Invest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import registration.pages.Register;
 import test.base.TestBase;
 import test.base.data.HelperMethods;
 import test.base.data.Users;
 import user.pages.IndividualInvestments;
+import user.pages.Profile;
 import user.pages.UserAccounts;
 
 public class CreateIndividualAccount extends TestBase {
@@ -30,8 +33,7 @@ public class CreateIndividualAccount extends TestBase {
         userAccounts.clickOpenAccountLink();
     }
 
-
-    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 12)
+    @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 12)
     public void createFirstIndividualAccount() throws InterruptedException {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment3Month();
@@ -61,13 +63,27 @@ public class CreateIndividualAccount extends TestBase {
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
-        UserAccounts userAccounts = new UserAccounts(app.getDriver());
-        app.sAssert().assertEquals(userAccounts.getAccountType(), "Individual");
-        app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV");
-        app.sAssert().assertAll();
+        PageHeading pageHeading = new PageHeading(app.getDriver());
+        pageHeading.clickLinkProfile();
+        Profile profile = new Profile(app.getDriver());
+        profile.clickCancelFormButton();
+        profile.enterStreetAddress("Milutenka Street New");
+        profile.chooseCountryUS();
+        profile.enterCity("Kharkiv New");
+        profile.chooseStateNevada();
+        profile.enterPostalCode("0987");
+        profile.enterPhoneNumber("911");
+        profile.clickUpdateFormButton();
+        Thread.sleep(5000);
+
+        //app.goTo("http://securedincomegroup.stgng.co/");
+        //UserAccounts userAccounts = new UserAccounts(app.getDriver());
+        //app.sAssert().assertEquals(userAccounts.getAccountType(), "Individual");
+        //app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV");
+        //app.sAssert().assertAll();
     }
 
-    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
+    @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherIndividualAccount() {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment3Month();
@@ -93,6 +109,7 @@ public class CreateIndividualAccount extends TestBase {
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Individual");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV");

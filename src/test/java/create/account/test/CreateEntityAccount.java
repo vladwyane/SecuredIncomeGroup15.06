@@ -90,6 +90,7 @@ public class CreateEntityAccount extends TestBase {
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Entity/Corporation");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "ENTITYNAME");
@@ -123,6 +124,7 @@ public class CreateEntityAccount extends TestBase {
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Entity/Llc");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "ENTITYNAME");

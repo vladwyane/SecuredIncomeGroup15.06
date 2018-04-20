@@ -8,7 +8,7 @@ import user.pages.*;
 
 public class EmailTerminateInvestment extends TestBase{
 
-    @Test(groups = "EmailTerminateInvestment", dependsOnGroups = "EmailMyReview", alwaysRun = true, priority = 78)
+    @Test (groups = "EmailTerminateInvestment", dependsOnGroups = "EmailMyReview", alwaysRun = true, priority = 78)
     public void sendTerminateInvestmentEmail() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co");
         HelperMethods helperMethods = new HelperMethods();
@@ -24,7 +24,7 @@ public class EmailTerminateInvestment extends TestBase{
         app.goTo("http://securedincomegroup.stgng.co");
         userAccounts.clickAccountNameRetirement();
         retirementInvestments.clickLinkTabClosed();
-        app.sAssert().assertEquals(retirementInvestments.getInvestmentStatus(), "CLOSED");
+        app.sAssert().assertEquals(retirementInvestments.getInvestmentStatus(), "");
         app.sAssert().assertAll();
     }
 

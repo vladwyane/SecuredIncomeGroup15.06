@@ -56,7 +56,7 @@ public class CreateRetirementAccount extends TestBase{
         app.sAssert().assertAll();
     }
 
-    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
+    @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherRetirementAccount() {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment6Month();
@@ -84,6 +84,7 @@ public class CreateRetirementAccount extends TestBase{
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Retirement/Simple IRA");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV");
@@ -114,6 +115,7 @@ public class CreateRetirementAccount extends TestBase{
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Retirement/403(b)");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV");

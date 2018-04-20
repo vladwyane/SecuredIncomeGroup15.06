@@ -27,8 +27,11 @@ public class CreateJointAccount extends TestBase{
     }
 
     @Ignore
-    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 12)
+    @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 12)
     public void createFirstJointAccount() {
+        Step1Invest step1Invest = new Step1Invest(app.getDriver());
+        step1Invest.chooseInvestment1Year();
+        step1Invest.enterInvestmentAmount("10,000.01");
         Step1Account step1Account = new Step1Account(app.getDriver());
         step1Account.chooseAccountJoint();
         step1Account.clickSaveButton();
@@ -43,19 +46,28 @@ public class CreateJointAccount extends TestBase{
         s2Joint.checkedJCitizenUS();
         s2Joint.checkedFinStatus1Mil();
         s2Joint.checkedKnowledgeYes();
-        s2Joint.clickSaveButton();
+        Step2Invest step2Invest = new Step2Invest(app.getDriver());
+        step2Invest.checkedRolloverDividends();
+        helperMethods.fillingDividendInformation(Users.VLADWYANE);
+        step2Invest.chooseDivCountryCanada();
+        step2Invest.chooseDivProvinceAlberta();
+        step2Invest.clickSaveButton();
         Step3Account step3Account = new Step3Account(app.getDriver());
         step3Account.clickConfirmButton();
         Step4Account step4Account = new Step4Account(app.getDriver());
         step4Account.agreeAll("Sign");
         step4Account.clickFinishButton();
+        Step5Invest step5Invest = new Step5Invest(app.getDriver());
+        step5Invest.clickFundByWireButton();
+        step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Joint");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV, VLAD CHES");
         app.sAssert().assertAll();
     }
 
-    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
+    @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherJointAccount() {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment1Year();
@@ -82,13 +94,14 @@ public class CreateJointAccount extends TestBase{
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Joint");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV, V CH");
         app.sAssert().assertAll();
     }
 
-    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
+    @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherJointAccountWithSameAddress() {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment1Year();
@@ -114,6 +127,7 @@ public class CreateJointAccount extends TestBase{
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Joint");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV, VLAD CHES");

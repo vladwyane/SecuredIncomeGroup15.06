@@ -36,6 +36,18 @@ public class UserAccounts {
         openAccountLink.click();
     }
 
+    @Name("Link Pending")
+    @FindBy(xpath = "(//*[@class='link-pending']/span)[1]")
+    private Link linkPending;
+
+    public String getTextLinkPending() {
+        return linkPending.getText();
+    }
+
+    public void clickLinkPending() {
+        linkPending.click();
+    }
+
     @Name("Account Type")
     @FindBy(xpath = "(//*[@class='account-type'])[1]")
     private HtmlElement accountType;

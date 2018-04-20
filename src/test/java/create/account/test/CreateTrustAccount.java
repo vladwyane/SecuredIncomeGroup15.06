@@ -112,6 +112,7 @@ public class CreateTrustAccount extends TestBase{
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Trust");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "TRUST NAME 1");
@@ -144,6 +145,7 @@ public class CreateTrustAccount extends TestBase{
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByWireButton();
         step5Invest.clickMyAccountButton();
+        app.goTo("http://securedincomegroup.stgng.co/");
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         app.sAssert().assertEquals(userAccounts.getAccountType(), "Trust");
         app.sAssert().assertEquals(userAccounts.getAccountName(), "TRUST NAME 2");
