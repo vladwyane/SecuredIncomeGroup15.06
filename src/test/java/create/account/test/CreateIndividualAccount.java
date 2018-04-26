@@ -1,6 +1,9 @@
 package create.account.test;
 
+import admin.pages.Admin;
+import common.elements.Header;
 import common.elements.PageHeading;
+import create.account.RemoveAccount;
 import create.account.Step1Account;
 import create.account.step2account.S2Individual;
 import create.account.Step3Account;
@@ -66,21 +69,14 @@ public class CreateIndividualAccount extends TestBase {
         PageHeading pageHeading = new PageHeading(app.getDriver());
         pageHeading.clickLinkProfile();
         Profile profile = new Profile(app.getDriver());
-        profile.clickCancelFormButton();
-        profile.enterStreetAddress("Milutenka Street New");
-        profile.chooseCountryUS();
-        profile.enterCity("Kharkiv New");
-        profile.chooseStateNevada();
-        profile.enterPostalCode("0987");
-        profile.enterPhoneNumber("911");
-        profile.clickUpdateFormButton();
-        Thread.sleep(5000);
-
-        //app.goTo("http://securedincomegroup.stgng.co/");
-        //UserAccounts userAccounts = new UserAccounts(app.getDriver());
-        //app.sAssert().assertEquals(userAccounts.getAccountType(), "Individual");
-        //app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV");
-        //app.sAssert().assertAll();
+        app.sAssert().assertEquals(profile.getEmailValue(), "vladwyane@gmail.com");
+        app.sAssert().assertEquals(profile.getStreetAddress(), "Milutenka Street");
+        app.sAssert().assertEquals(profile.getCity(), "Kharkiv");
+        app.sAssert().assertEquals(profile.getPhoneNumber(), "0668843478");
+        app.sAssert().assertEquals(profile.getPostalCode(), "1234");
+        app.sAssert().assertEquals(profile.getCountrySelectValue(), "Canada");
+        app.sAssert().assertEquals(profile.getStateSelectValue(), "Alberta");
+        app.sAssert().assertAll();
     }
 
     @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
@@ -115,5 +111,7 @@ public class CreateIndividualAccount extends TestBase {
         app.sAssert().assertEquals(userAccounts.getAccountName(), "VLADYSLAV CHESALOV");
         app.sAssert().assertAll();
     }
+
+
 
 }

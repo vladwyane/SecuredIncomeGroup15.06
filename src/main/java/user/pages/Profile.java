@@ -23,14 +23,15 @@ public class Profile {
 
     @Name("User Email")
     @FindBy(id = "email-address")
-    private HtmlElement emailField;
+    private TextInput emailField;
 
     public void enterEmail(String login) {
+        emailField.clear();
         emailField.sendKeys(login);
     }
 
     public String getEmailValue() {
-        return emailField.getText();
+        return emailField.getEnteredText();
     }
 
     @Name("User Password")
@@ -70,6 +71,14 @@ public class Profile {
     @FindBy(xpath = "//span[contains(@class, 'country-select')]")
     private HtmlElement countrySelect;
 
+    @Name("Country Select Value")
+    @FindBy(xpath = "//span[contains(@class, 'country-select')]/span/span")
+    private HtmlElement countrySelectValue;
+
+    public String getCountrySelectValue() {
+        return countrySelectValue.getText();
+    }
+
     @Name("Country Canada")
     @FindBy(xpath = "//span[contains(text(), 'Canada')]")
     private HtmlElement countryCanada;
@@ -104,6 +113,14 @@ public class Profile {
     @Name("State Province")
     @FindBy(xpath = "//select[@id='state']/following-sibling::span")
     private HtmlElement stateSelect;
+
+    @Name("State Province Value")
+    @FindBy(xpath = "//select[@id='state']/following-sibling::span/span/span")
+    private HtmlElement stateSelectValue;
+
+    public String getStateSelectValue() {
+        return stateSelectValue.getText();
+    }
 
     @Name("Province Alberta")
     @FindBy(xpath = "//span[contains(text(), 'Alberta')]")

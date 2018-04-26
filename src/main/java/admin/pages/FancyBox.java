@@ -25,6 +25,7 @@ public class FancyBox {
     public AdminActivateFunds clickSubmitButton() {
         submitButton.click();
         return new AdminActivateFunds(driver);
+
     }
 
 
