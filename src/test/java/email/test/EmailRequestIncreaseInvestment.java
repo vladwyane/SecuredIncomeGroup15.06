@@ -26,7 +26,7 @@ public class EmailRequestIncreaseInvestment extends TestBase{
         individualInvestments.clickSubmitFundingButton();
         //waiting until email will be sent
         Thread.sleep(3000);
-        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $100.00");
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FUNDS PENDING: $100.00");
         app.sAssert().assertAll();
 
     }

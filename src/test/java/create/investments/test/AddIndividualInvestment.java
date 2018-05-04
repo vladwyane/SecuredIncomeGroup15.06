@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class AddIndividualInvestment extends TestBase {
 
-    @Test(groups = "AddIndividualInvestment", dependsOnGroups = "EmailAddInvestment", alwaysRun = true, priority = 42)
+    @Test (groups = "AddIndividualInvestment", dependsOnGroups = "EmailAddInvestment", alwaysRun = true, priority = 42)
     public void testAddCountInvestments() throws InterruptedException {
         addCountInvestment(8);
     }
@@ -45,7 +45,7 @@ public class AddIndividualInvestment extends TestBase {
             IndividualInvestments individualInvestments = new IndividualInvestments(app.getDriver());
             individualInvestments.clickLinkAddToInvestment();
             finalSumFl = rand.nextFloat() * (maxSum - minSum) + minSum;
-            sum = String.format("%.3f", finalSumFl);
+            sum = String.format("%.2f", finalSumFl);
             individualInvestments.enterAddInvestment(sum);
             individualInvestments.clickSubmitFundingButton();
             Thread.sleep(5000);
@@ -60,7 +60,7 @@ public class AddIndividualInvestment extends TestBase {
             adminActivateFunds.enterAccountNumber(investNum);
             adminActivateFunds.enterFundAmount(sum);
             day = Integer.toString(23 + i);
-            adminActivateFunds.enterFundDate("03/" + day + "/2018");
+            adminActivateFunds.enterFundDate("04/" + day + "/2018");
             adminActivateFunds.clickSubmitButton();
             fancyBox.clickSubmitButton();
             header.clickLinkSign();

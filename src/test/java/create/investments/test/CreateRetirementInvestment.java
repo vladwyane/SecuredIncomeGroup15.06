@@ -21,7 +21,7 @@ public class CreateRetirementInvestment extends TestBase {
         app.goTo("http://securedincomegroup.stgng.co/");
     }
 
-    @Test(groups = "CreateRetirementInvestment", dependsOnGroups = "EmailRenewCurrentValue", alwaysRun = true, priority = 54)
+    @Test (groups = "CreateRetirementInvestment", dependsOnGroups = "EmailRenewCurrentValue", alwaysRun = true, priority = 54)
     public void createRetireInvest6Month() throws InterruptedException {
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.signIn(Users.CHESALOV);
@@ -61,7 +61,7 @@ public class CreateRetirementInvestment extends TestBase {
         header.clickLinkSign();
         helperMethods.signIn(Users.CHESALOV);
         userAccounts.clickAccountNameRetirement();
-        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $5,000.00");
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FUNDS PENDING: $5,000.00");
         app.sAssert().assertAll();
     }
 

@@ -75,7 +75,7 @@ public class CreateTrustInvestment extends TestBase{
         }
     }
 
-    @Test(groups = "CreateTrustInvestment", dependsOnGroups = "EmailRetirementInvestment", alwaysRun = true, priority = 58)
+    @Test (groups = "CreateTrustInvestment", dependsOnGroups = "EmailRetirementInvestment", alwaysRun = true, priority = 58)
     public void testCreateTrustInvest1Year() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co/");
         HelperMethods helperMethods = new HelperMethods();
@@ -104,11 +104,11 @@ public class CreateTrustInvestment extends TestBase{
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByCheckButton();
         step5Invest.clickFinishButton();
-        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $10,111.99");
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FUNDS PENDING: $10,111.99");
         app.sAssert().assertAll();
     }
 
-    @Test(groups = "CreateTrustInvestment", dependsOnGroups = "EmailRetirementInvestment", alwaysRun = true, priority = 60)
+    @Test (groups = "CreateTrustInvestment", dependsOnGroups = "EmailRetirementInvestment", alwaysRun = true, priority = 60)
     public void testActivateTrustInvestment() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co");
         HelperMethods helperMethods = new HelperMethods();
@@ -124,7 +124,7 @@ public class CreateTrustInvestment extends TestBase{
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
         adminActivateFunds.enterAccountNumber(investNum);
         adminActivateFunds.enterFundAmount("10111.99");
-        adminActivateFunds.enterFundDate("04/08/2017");
+        adminActivateFunds.enterFundDate("04/30/2017");
         adminActivateFunds.clickSubmitButton();
         Thread.sleep(2000);
         FancyBox fancyBox = new FancyBox(app.getDriver());
@@ -135,12 +135,12 @@ public class CreateTrustInvestment extends TestBase{
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameTrust();
         TrustInvestments trustInvestments = new TrustInvestments(app.getDriver());
-        app.sAssert().assertEquals(trustInvestments.getDateFunded(), "04/08/2017");
-        app.sAssert().assertEquals(trustInvestments.getMaturityDate(), "04/08/2018");
+        app.sAssert().assertEquals(trustInvestments.getDateFunded(), "04/30/2017");
+        app.sAssert().assertEquals(trustInvestments.getMaturityDate(), "04/30/2018");
         app.sAssert().assertEquals(trustInvestments.getInvestmentRate(), "7.15%");
         app.sAssert().assertEquals(trustInvestments.getInvestmentTerm(), "1 YEAR(S)");
         app.sAssert().assertEquals(trustInvestments.getInvestmentStatus(), "ACTIVE");
-        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/08/2018");
+        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/30/2018");
         app.sAssert().assertAll();
 
     }

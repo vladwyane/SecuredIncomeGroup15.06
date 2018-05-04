@@ -31,7 +31,7 @@ public class EmailRenewCurrentValuePlus extends TestBase {
         fancyboxRenewInvestments.enterFieldRenewCurValPlus("14888.01");
         fancyboxRenewInvestments.clickAcceptButton();
         Thread.sleep(2000);
-        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $14,888.01");
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FUNDS PENDING: $14,888.01");
         app.sAssert().assertAll();
     }
 

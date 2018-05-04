@@ -10,7 +10,7 @@ import test.base.data.Users;
 
 public class EmailPendingFunds extends TestBase{
 
-    @Test(groups = "EmailPendingFunds", dependsOnGroups = "EmailCreateInvestment", alwaysRun = true, priority = 22)
+    @Test (groups = "EmailPendingFunds", dependsOnGroups = "EmailCreateInvestment", alwaysRun = true, priority = 22)
     public void testCountMailsSentInd() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co");
         HelperMethods helperMethods = new HelperMethods();

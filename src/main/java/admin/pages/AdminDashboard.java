@@ -60,7 +60,7 @@ public class AdminDashboard {
     }
 
     @Name("Link Retirement Setup")
-    @FindBy(xpath = "//a/div/p[text()='Retirement Setup']")
+    @FindBy(xpath = "//a/div/p[text()='Retirement Pending']")
     private Link linkRetirementSetup;
 
     public void clickLinkRetirementSetup() {

@@ -14,7 +14,7 @@ import user.pages.UserAccounts;
 
 public class EmailActivateInvestment extends TestBase {
 
-    @Test(groups = "EmailActivateInvestment", dependsOnGroups = "EmailPendingFunds", alwaysRun = true, priority = 26)
+    @Test (groups = "EmailActivateInvestment", dependsOnGroups = "EmailPendingFunds", alwaysRun = true, priority = 26)
     public void testActivateIndInvestment() throws InterruptedException {
         app.goTo("http://securedincomegroup.stgng.co");
         HelperMethods helperMethods = new HelperMethods();
@@ -28,7 +28,7 @@ public class EmailActivateInvestment extends TestBase {
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
         adminActivateFunds.enterAccountNumber(investNum);
         adminActivateFunds.enterFundAmount("5000");
-        adminActivateFunds.enterFundDate("03/23/2018");
+        adminActivateFunds.enterFundDate("04/23/2018");
         adminActivateFunds.clickSubmitButton();
         Thread.sleep(2000);
         FancyBox fancyBox = new FancyBox(app.getDriver());
@@ -39,8 +39,8 @@ public class EmailActivateInvestment extends TestBase {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameIndividual();
         IndividualInvestments individualInvestments = new IndividualInvestments(app.getDriver());
-        app.sAssert().assertEquals(individualInvestments.getDateFunded(), "03/23/2018");
-        app.sAssert().assertEquals(individualInvestments.getMaturityDate(), "06/23/2018");
+        app.sAssert().assertEquals(individualInvestments.getDateFunded(), "04/23/2018");
+        app.sAssert().assertEquals(individualInvestments.getMaturityDate(), "07/23/2018");
         app.sAssert().assertEquals(individualInvestments.getInvestmentRate(), "6%");
         app.sAssert().assertEquals(individualInvestments.getInvestmentTerm(), "3 MONTH(S)");
         app.sAssert().assertEquals(individualInvestments.getInvestmentStatus(), "ACTIVE");

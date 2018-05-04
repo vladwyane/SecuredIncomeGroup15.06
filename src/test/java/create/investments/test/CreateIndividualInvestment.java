@@ -49,7 +49,7 @@ public class CreateIndividualInvestment extends TestBase {
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByCheckButton();
         step5Invest.clickFinishButton();
-        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $5,000.00");
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FUNDS PENDING: $5,000.00");
         app.sAssert().assertAll();
 
     }

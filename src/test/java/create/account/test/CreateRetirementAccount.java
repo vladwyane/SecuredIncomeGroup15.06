@@ -91,7 +91,7 @@ public class CreateRetirementAccount extends TestBase{
         app.sAssert().assertAll();
     }
 
-    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
+    @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherRetirementAccountWithoutRetireInfo() {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment6Month();

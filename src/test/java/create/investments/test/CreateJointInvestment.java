@@ -20,7 +20,7 @@ public class CreateJointInvestment extends TestBase{
         helperMethods.signIn(Users.CHESALOV);
     }
 
-    @Test(groups = "CreateJointInvestment", dependsOnGroups = "AddIndividualInvestment", alwaysRun = true, priority = 44)
+    @Test (groups = "CreateJointInvestment", dependsOnGroups = "AddIndividualInvestment", alwaysRun = true, priority = 44)
     public void createJointInvest1Year() throws InterruptedException {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameJoint();
@@ -49,7 +49,7 @@ public class CreateJointInvestment extends TestBase{
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByCheckButton();
         step5Invest.clickFinishButton();
-        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $10,000.01");
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FUNDS PENDING: $10,000.01");
         app.sAssert().assertAll();
 
     }

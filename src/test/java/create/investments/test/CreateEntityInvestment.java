@@ -47,7 +47,7 @@ public class CreateEntityInvestment extends TestBase {
         Step5Invest step5Invest = new Step5Invest(app.getDriver());
         step5Invest.clickFundByCheckButton();
         step5Invest.clickFinishButton();
-        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FINISH FUNDING: $25,000.99");
+        app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FUNDS PENDING: $25,000.99");
         app.sAssert().assertAll();
     }
 
@@ -67,7 +67,7 @@ public class CreateEntityInvestment extends TestBase {
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
         adminActivateFunds.enterAccountNumber(investNum);
         adminActivateFunds.enterFundAmount("25,000.99");
-        adminActivateFunds.enterFundDate("04/08/2015");
+        adminActivateFunds.enterFundDate("04/30/2015");
         adminActivateFunds.clickSubmitButton();
         Thread.sleep(2000);
         FancyBox fancyBox = new FancyBox(app.getDriver());
@@ -78,12 +78,12 @@ public class CreateEntityInvestment extends TestBase {
         UserAccounts userAccounts = new UserAccounts(app.getDriver());
         userAccounts.clickAccountNameEntity();
         EntityInvestments entityInvestments = new EntityInvestments(app.getDriver());
-        app.sAssert().assertEquals(entityInvestments.getDateFunded(), "04/08/2015");
-        app.sAssert().assertEquals(entityInvestments.getMaturityDate(), "04/08/2018");
+        app.sAssert().assertEquals(entityInvestments.getDateFunded(), "04/30/2015");
+        app.sAssert().assertEquals(entityInvestments.getMaturityDate(), "04/30/2018");
         app.sAssert().assertEquals(entityInvestments.getInvestmentRate(), "9.00%");
         app.sAssert().assertEquals(entityInvestments.getInvestmentTerm(), "3 YEAR(S)");
         app.sAssert().assertEquals(entityInvestments.getInvestmentStatus(), "ACTIVE");
-        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/08/2018");
+        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/30/2018");
         app.sAssert().assertAll();
     }
 

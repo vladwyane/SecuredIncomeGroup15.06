@@ -16,7 +16,7 @@ public class HelperMethods extends TestBase{
         S2Individual s2Individual = new S2Individual(app.getDriver());
         s2Individual.enterFirstName(users.getFirstUserName());
         s2Individual.enterLastName(users.getLastUserName());
-        s2Individual.enterBirthDate(users.getBirthDate());
+        //s2Individual.enterBirthDate(users.getBirthDate());
         s2Individual.enterSSN(users.getSSN());
         s2Individual.enterStreetAddress(users.getStAddress());
         s2Individual.enterCity(users.getCity());
@@ -114,7 +114,7 @@ public class HelperMethods extends TestBase{
         createAccount.enterLogin(users.getEmail());
         createAccount.enterPassword(users.getPassword());
         createAccount.clickCaptcha();
-        Thread.sleep(10000);
+        Thread.sleep(40000);
         createAccount.clickSubmitButton();
     }
 

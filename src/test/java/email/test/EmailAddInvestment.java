@@ -47,7 +47,7 @@ public class EmailAddInvestment extends TestBase{
         AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
         adminActivateFunds.enterAccountNumber(investNum);
         adminActivateFunds.enterFundAmount("100");
-        adminActivateFunds.enterFundDate("03/23/2018");
+        adminActivateFunds.enterFundDate("04/23/2018");
         adminActivateFunds.clickSubmitButton();
         Thread.sleep(2000);
         FancyBox fancyBox = new FancyBox(app.getDriver());
