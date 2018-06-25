@@ -31,7 +31,6 @@ public class CreateRetirementInvestment extends TestBase {
         retirementInvestments.clickLinkDelNewInvestt();
         FancyboxDeleteNewInvestments fancyboxDeleteNewInvestments = new FancyboxDeleteNewInvestments(app.getDriver());
         fancyboxDeleteNewInvestments.clickButtonDeleteInv();
-        //Thread.sleep(5000);
         retirementInvestments.clickLinkCreateInvestment();
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment6Month();

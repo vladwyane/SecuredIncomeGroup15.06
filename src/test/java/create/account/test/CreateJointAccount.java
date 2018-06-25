@@ -68,7 +68,7 @@ public class CreateJointAccount extends TestBase{
     }
 
     @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
-    public void createAnotherJointAccount() {
+    public void createAnotherJointAccount() throws InterruptedException {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment1Year();
         step1Invest.enterInvestmentAmount("10,000.01");
@@ -78,12 +78,15 @@ public class CreateJointAccount extends TestBase{
         S2Joint s2Joint = new S2Joint(app.getDriver());
         HelperMethods helperMethods = new HelperMethods();
         helperMethods.fillingJointInformation(Users.VLAD);
+        Thread.sleep(300);
         s2Joint.chooseJCountryUS();
+        Thread.sleep(300);
         s2Joint.chooseJStateAlabama();
         s2Joint.checkedFinStatus30000();
         s2Joint.checkedKnowledgeYes();
         Step2Invest step2Invest = new Step2Invest(app.getDriver());
         step2Invest.checkedRolloverDividends();
+        Thread.sleep(300);
         step2Invest.checkedDivCheckboxSameAddress();
         s2Joint.clickSaveButton();
         Step3Account step3Account = new Step3Account(app.getDriver());

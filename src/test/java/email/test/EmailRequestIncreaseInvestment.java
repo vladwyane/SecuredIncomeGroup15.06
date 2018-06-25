@@ -28,8 +28,9 @@ public class EmailRequestIncreaseInvestment extends TestBase{
         Thread.sleep(3000);
         app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FUNDS PENDING: $100.00");
         app.sAssert().assertAll();
-
     }
+
+
 
     @Test(groups = "EmailRequestIncreaseInvestment", dependsOnGroups = "EmailActivateInvestment", alwaysRun = true, priority = 32)
     public void testEmailRequestIncreaseInvestmentForUser() throws InterruptedException {

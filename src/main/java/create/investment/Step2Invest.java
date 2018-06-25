@@ -96,7 +96,7 @@ public class Step2Invest {
     }
 
     @Name("Dividend United States")
-    @FindBy(xpath = "//span[contains(text(), 'United States')]")
+    @FindBy(xpath = "//span[@class='jcf-option' and contains(text(), 'United States')]")
     private HtmlElement divCountryUS;
 
     public void chooseDivCountryUS() {
@@ -139,7 +139,7 @@ public class Step2Invest {
     }
 
     @Name("Dividend State Nevada")
-    @FindBy(xpath = "//span[contains(text(), 'Nevada')]")
+    @FindBy(xpath = "//span[@class='jcf-option' and contains(text(), 'Nevada')]")
     private HtmlElement divStateNevada;
 
     public void chooseDivStateNevada() {

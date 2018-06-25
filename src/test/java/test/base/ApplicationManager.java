@@ -94,13 +94,16 @@ public class ApplicationManager {
     }
 
     public String checkGoogleMail(Users users) throws InterruptedException {
-        goTo("http://mail.google.com");
+        goTo("https://accounts.google.com/signin");
         driver.findElement(By.cssSelector("[name='identifier']")).sendKeys(users.getEmail());
         driver.findElement(By.id("identifierNext")).click();
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("[name='password']")).sendKeys(users.getPassword());
         driver.findElement(By.id("passwordNext")).click();
         Thread.sleep(3000);
+        driver.findElement(By.xpath("//a[@data-track-as='Welcome Header Mail']")).click();
+        Thread.sleep(3000);
+
         String boldHeading = driver.findElements(By.cssSelector("div span b")).get(0).getText();
 
         return  boldHeading;

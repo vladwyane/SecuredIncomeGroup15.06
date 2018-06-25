@@ -119,7 +119,7 @@ public class S2Joint extends S2Individual{
     }
 
     @Name("Joint United States")
-    @FindBy(xpath = "//span[contains(text(), 'United States')]")
+    @FindBy(xpath = "//span[@class='jcf-option' and contains(text(), 'United States')]")
     private HtmlElement jCountryUS;
 
     public void chooseJCountryUS() {
@@ -162,7 +162,7 @@ public class S2Joint extends S2Individual{
     }
 
     @Name("Joint State Nevada")
-    @FindBy(xpath = "//span[contains(text(), 'Nevada')]")
+    @FindBy(xpath = "//span[@class='jcf-option' and contains(text(), 'Nevada')]")
     private HtmlElement jStateNevada;
 
     public void chooseJStateNevada() {

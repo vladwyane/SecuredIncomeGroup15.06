@@ -62,7 +62,7 @@ public class CreateEntityAccount extends TestBase {
         app.sAssert().assertAll();
     }
 
-    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
+    @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherEntityAccount() {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment3Year();
@@ -97,7 +97,7 @@ public class CreateEntityAccount extends TestBase {
         app.sAssert().assertAll();
     }
 
-    @Test(groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
+    @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
     public void createAnotherEntityAccountWithSameAddress() {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment3Year();

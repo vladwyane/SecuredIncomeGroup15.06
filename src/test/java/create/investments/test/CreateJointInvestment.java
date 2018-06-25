@@ -28,7 +28,6 @@ public class CreateJointInvestment extends TestBase{
         jointInvestments.clickLinkDelNewInvestt();
         FancyboxDeleteNewInvestments fancyboxDeleteNewInvestments = new FancyboxDeleteNewInvestments(app.getDriver());
         fancyboxDeleteNewInvestments.clickButtonDeleteInv();
-        //Thread.sleep(5000);
         jointInvestments.clickLinkCreateInvestment();
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment1Year();
@@ -37,9 +36,9 @@ public class CreateJointInvestment extends TestBase{
         Step2Invest step2Invest = new Step2Invest(app.getDriver());
         step2Invest.checkedRolloverDividends();
         HelperMethods helperMethods = new HelperMethods();
-        helperMethods.fillingDividendInformation(Users.VLAD);
         step2Invest.chooseDivCountryUS();
         step2Invest.chooseDivStateNevada();
+        helperMethods.fillingDividendInformation(Users.VLAD);
         step2Invest.clickSaveButton();
         Step3Invest step3Invest = new Step3Invest(app.getDriver());
         step3Invest.clickConfirmButton();

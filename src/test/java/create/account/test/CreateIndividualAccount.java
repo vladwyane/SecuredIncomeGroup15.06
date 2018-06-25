@@ -72,7 +72,7 @@ public class CreateIndividualAccount extends TestBase {
         app.sAssert().assertEquals(profile.getEmailValue(), "vladwyane@gmail.com");
         app.sAssert().assertEquals(profile.getStreetAddress(), "Milutenka Street");
         app.sAssert().assertEquals(profile.getCity(), "Kharkiv");
-        app.sAssert().assertEquals(profile.getPhoneNumber(), "0668843478");
+        app.sAssert().assertEquals(profile.getPhoneNumber(), "066-884-3478");
         app.sAssert().assertEquals(profile.getPostalCode(), "1234");
         app.sAssert().assertEquals(profile.getCountrySelectValue(), "Canada");
         app.sAssert().assertEquals(profile.getStateSelectValue(), "Alberta");
@@ -80,7 +80,7 @@ public class CreateIndividualAccount extends TestBase {
     }
 
     @Test (groups = "CreateAccount", dependsOnGroups = "NoInvestmentCreated", alwaysRun = true, priority = 14)
-    public void createAnotherIndividualAccount() {
+    public void createAnotherIndividualAccount() throws InterruptedException {
         Step1Invest step1Invest = new Step1Invest(app.getDriver());
         step1Invest.chooseInvestment3Month();
         step1Invest.enterInvestmentAmount("5000");

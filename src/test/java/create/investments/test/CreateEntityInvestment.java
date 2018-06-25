@@ -50,41 +50,4 @@ public class CreateEntityInvestment extends TestBase {
         app.sAssert().assertEquals(userAccounts.getAlertFinishFunding(), "FUNDS PENDING: $25,000.99");
         app.sAssert().assertAll();
     }
-
-    @Test(groups = "CreateEntityInvestment", dependsOnGroups = "EmailRenewCurrentValuePlus", alwaysRun = true, priority = 68)
-    public void testActivateEntityInvestment() throws InterruptedException {
-        app.goTo("http://securedincomegroup.stgng.co");
-        HelperMethods helperMethods = new HelperMethods();
-        helperMethods.signIn(Users.ADMIN);
-        AdminDashboard adminDashboard = new AdminDashboard(app.getDriver());
-        adminDashboard.clickLinkFundsPending();
-        AdminFundsPending adminFundsPending = new AdminFundsPending(app.getDriver());
-        String investNum = adminFundsPending.getFirstInvNum();
-        RemoveAccount actionsWithWPAdmin = new RemoveAccount(app.getDriver());
-        actionsWithWPAdmin.changeYearPublish("04","2015");
-        app.goTo("http://securedincomegroup.stgng.co/admin-dashboard/");
-        adminDashboard.clickLinkFundsActivate();
-        AdminActivateFunds adminActivateFunds = new AdminActivateFunds(app.getDriver());
-        adminActivateFunds.enterAccountNumber(investNum);
-        adminActivateFunds.enterFundAmount("25,000.99");
-        adminActivateFunds.enterFundDate("04/30/2015");
-        adminActivateFunds.clickSubmitButton();
-        Thread.sleep(2000);
-        FancyBox fancyBox = new FancyBox(app.getDriver());
-        fancyBox.clickSubmitButton();
-        Header header = new Header(app.getDriver());
-        header.clickLinkSign();
-        helperMethods.signIn(Users.CHESALOV);
-        UserAccounts userAccounts = new UserAccounts(app.getDriver());
-        userAccounts.clickAccountNameEntity();
-        EntityInvestments entityInvestments = new EntityInvestments(app.getDriver());
-        app.sAssert().assertEquals(entityInvestments.getDateFunded(), "04/30/2015");
-        app.sAssert().assertEquals(entityInvestments.getMaturityDate(), "04/30/2018");
-        app.sAssert().assertEquals(entityInvestments.getInvestmentRate(), "9.00%");
-        app.sAssert().assertEquals(entityInvestments.getInvestmentTerm(), "3 YEAR(S)");
-        app.sAssert().assertEquals(entityInvestments.getInvestmentStatus(), "ACTIVE");
-        app.sAssert().assertEquals(userAccounts.getAlertRenewPending(), "RENEWAL PENDING : DUE 04/30/2018");
-        app.sAssert().assertAll();
-    }
-
 }

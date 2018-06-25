@@ -20,7 +20,7 @@ public class EmailRegistration extends TestBase{
         app.sAssert().assertAll();
     }
 
-    @Test //(groups = "Registration", priority = 4)
+    @Test (groups = "Registration", priority = 4)
     public void testEmailRegistrationForUser() throws InterruptedException {
         app.sAssert().assertEquals(app.checkGoogleMail(Users.VLADWYANE), "Welcome To Secured Income Group");
         app.sAssert().assertAll();
@@ -28,7 +28,7 @@ public class EmailRegistration extends TestBase{
 
     @Test (groups = "Registration", priority = 6)
     public void testEmailRegistrationForAdmin() throws InterruptedException {
-        app.sAssert().assertEquals(app.checkGoogleMail(Users.VLAD), "[Secured Income Group] New User Registration");
+        app.sAssert().assertEquals(app.checkGoogleMail(Users.VLAD), "[SecuredIncomeGroup] New User Registration");
         app.sAssert().assertAll();
     }
 }

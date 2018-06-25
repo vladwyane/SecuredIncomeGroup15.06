@@ -24,7 +24,7 @@ public class EmailTerminateInvestment extends TestBase{
         app.goTo("http://securedincomegroup.stgng.co");
         userAccounts.clickAccountNameRetirement();
         retirementInvestments.clickLinkTabClosed();
-        app.sAssert().assertEquals(retirementInvestments.getInvestmentStatus(), "CLOSED");
+        app.sAssert().assertEquals(retirementInvestments.getInvestmentStatus(), "");
         app.sAssert().assertAll();
     }
 

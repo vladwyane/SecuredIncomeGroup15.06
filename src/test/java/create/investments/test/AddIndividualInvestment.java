@@ -59,8 +59,8 @@ public class AddIndividualInvestment extends TestBase {
             adminDashboard.clickLinkFundsActivate();
             adminActivateFunds.enterAccountNumber(investNum);
             adminActivateFunds.enterFundAmount(sum);
-            day = Integer.toString(23 + i);
-            adminActivateFunds.enterFundDate("04/" + day + "/2018");
+            day = Integer.toString(11 + i);
+            adminActivateFunds.enterFundDate("06/" + day + "/2018");
             adminActivateFunds.clickSubmitButton();
             fancyBox.clickSubmitButton();
             header.clickLinkSign();

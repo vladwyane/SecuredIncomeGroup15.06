@@ -42,7 +42,7 @@ public class UpdateUserDate extends TestBase {
         app.sAssert().assertEquals(admin.getUserLastName(), "Chesalov");
         app.sAssert().assertEquals(admin.getUserEmail(), "vladwyane@gmail.com");
         app.sAssert().assertEquals(admin.getUserCity(), "Kharkiv Update");
-        app.sAssert().assertEquals(admin.getUserPhoneNumber(), "0509881255");
+        app.sAssert().assertEquals(admin.getUserPhoneNumber(), "050-988-1255");
         app.sAssert().assertEquals(admin.getUserPostCode(), "9876");
         app.sAssert().assertEquals(admin.getUserCountry(), "United States");
         app.sAssert().assertEquals(admin.getUserState(), "Nevada");
